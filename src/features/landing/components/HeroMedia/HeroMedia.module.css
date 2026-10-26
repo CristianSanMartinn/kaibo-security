@@ -1,0 +1,57 @@
+.background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.image,
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% center;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(5 15 29 / 94%) 0%,
+      rgb(5 15 29 / 76%) 37%,
+      rgb(5 15 29 / 22%) 100%
+    ),
+    linear-gradient(0deg, rgb(5 15 29 / 92%), transparent 35%);
+}
+.status {
+  position: absolute;
+  top: 1rem;
+  right: var(--gutter);
+  z-index: 2;
+  color: #e1e6ee;
+  font-size: 0.6rem;
+}
+.status > span,
+.status > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid #ffffff3d;
+  border-radius: var(--radius-sm);
+  background: #0b1729b3;
+  color: inherit;
+}
+.status > button {
+  min-height: 2.75rem;
+  font-size: var(--text-xs);
+}
+@media (max-width: 39.99rem) {
+  .overlay {
+    background:
+      linear-gradient(90deg, rgb(5 15 29 / 90%), rgb(5 15 29 / 64%)),
+      linear-gradient(0deg, rgb(5 15 29 / 90%), transparent 60%);
+  }
+}

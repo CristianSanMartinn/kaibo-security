@@ -1,0 +1,19 @@
+/* Aviso de desarrollo: retirar únicamente cuando se apruebe el contenido final. */
+.review {
+  padding-block: 0.7rem;
+  background: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+.review > div {
+  display: flex;
+  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+}
+.review span {
+  color: var(--color-accent);
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}

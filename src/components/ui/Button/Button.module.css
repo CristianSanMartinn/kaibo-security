@@ -1,0 +1,94 @@
+/* Feedback breve al tocar, enfocar o pasar el puntero; sin destellos repetitivos. */
+.root {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.3rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition:
+    background var(--duration-fast),
+    border-color var(--duration-fast),
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+.root::before {
+  content: "";
+  position: absolute;
+  inset: -25% auto -25% -100%;
+  width: 65%;
+  background: linear-gradient(110deg, transparent, #ffffff52, transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+  transition: left 600ms ease;
+}
+.root svg {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.primary {
+  color: var(--color-primary);
+  background: var(--color-accent);
+  box-shadow: 0 0.3rem 1rem #f4b41a16;
+}
+.primary:hover:not(:disabled),
+.primary:focus-visible {
+  background: var(--color-accent-hover);
+  box-shadow: 0 0.5rem 1.5rem #f4b41a38;
+}
+.secondary {
+  color: white;
+  background: var(--color-secondary);
+}
+.secondary:hover:not(:disabled) {
+  background: var(--color-surface-raised);
+}
+.outline {
+  color: inherit;
+  border-color: currentColor;
+  background: transparent;
+}
+.outline:hover:not(:disabled) {
+  background: #ffffff14;
+}
+.root:focus-visible::before,
+.root:active:not(:disabled)::before {
+  left: 150%;
+}
+.root:active:not(:disabled) {
+  transform: translateY(1px) scale(0.99);
+}
+.root:disabled {
+  opacity: 0.65;
+}
+@media (hover: hover) {
+  .root:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+  .root:hover:not(:disabled)::before {
+    left: 150%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .root::before {
+    display: none;
+  }
+  .root:hover:not(:disabled),
+  .root:active:not(:disabled) {
+    transform: none;
+  }
+}

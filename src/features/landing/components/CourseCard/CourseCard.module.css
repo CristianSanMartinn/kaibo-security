@@ -1,0 +1,217 @@
+/* Tarjeta editorial: cabecera, imagen interior y acción alineada al pie. */
+.root {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  padding: clamp(1.15rem, 2.4vw, 1.65rem);
+  overflow: hidden;
+  border: 1px solid #3d608580;
+  border-radius: 0.9rem;
+  background: linear-gradient(155deg, #122e4e, #0d2138);
+  box-shadow: 0 1rem 2.5rem #00000020;
+  transition:
+    transform 240ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+.root:focus-within,
+.root[data-selected="true"] {
+  border-color: var(--color-accent);
+  box-shadow:
+    0 0 0 1px #f4b41a44,
+    0 1rem 2.5rem #00000030;
+}
+.topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+.number {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+.category {
+  color: var(--color-muted);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: right;
+}
+.image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid #ffffff14;
+  border-radius: 0.5rem;
+  background: var(--color-secondary);
+}
+.image img {
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: 1.4rem;
+}
+.body h3 {
+  min-height: 2.7em;
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  line-height: 1.35;
+}
+.description {
+  margin-top: 0.8rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+.facts:empty {
+  display: none;
+}
+.facts span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.bottom {
+  display: grid;
+  gap: 1.4rem;
+  margin-top: auto;
+  padding-top: 1.3rem;
+}
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+.price::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0.5rem #f4b41a70;
+}
+/* Conserva la semántica de botón porque abre el detalle dentro de la página. */
+.action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 3.1rem;
+  padding-top: 1rem;
+  border: 0;
+  border-top: 1px solid #3d608580;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+.action svg {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 180ms ease;
+}
+.action:focus-visible,
+.action:active {
+  color: var(--color-accent);
+}
+.action:active svg {
+  transform: translate(2px, -2px);
+}
+@media (hover: hover) {
+  .root:hover {
+    border-color: #f4b41a80;
+    box-shadow: 0 1rem 2.5rem #00000038;
+  }
+  .root:hover .image img {
+    transform: scale(1.035);
+  }
+  .action:hover {
+    color: var(--color-accent);
+  }
+  .action:hover svg {
+    transform: translate(3px, -3px);
+  }
+}
+/* El mazo conserva su altura sin superponer los textos de las tarjetas traseras. */
+.root[data-preview="true"] .body {
+  visibility: hidden;
+}
+
+/* La luz recorre solo el borde; el contenido conserva un fondo sólido. */
+@property --course-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.root {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(155deg, #122e4e, #0d2138) padding-box,
+    conic-gradient(
+        from var(--course-border-angle),
+        var(--course-border-base, #3d6085) 0deg,
+        var(--course-border-base, #3d6085) 275deg,
+        #f4b41a 315deg,
+        #fff4d5 333deg,
+        #f4b41a 345deg,
+        var(--course-border-base, #3d6085) 360deg
+      )
+      border-box;
+  animation: cardOrbit 8s linear infinite;
+}
+.root:hover,
+.root:focus-within,
+.root[data-selected="true"] {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 1.25rem #f4b41a20;
+}
+@keyframes cardOrbit {
+  to {
+    --course-border-angle: 360deg;
+  }
+}
+
+/* Elevación al pasar el ratón: no altera la posición de las tarjetas vecinas. */
+@media (hover: hover) and (pointer: fine) {
+  .root:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 1.4rem 2.6rem #00000048,
+      0 0 1.1rem #f4b41a18;
+  }
+}
+
+/* El dorado no oculta la estela al usar ratón o teclado. */
+.root:hover,
+.root:focus-within,
+.root[data-selected="true"] {
+  --course-border-base: #bb861a;
+  border-color: transparent;
+}

@@ -1,0 +1,25 @@
+.root {
+  padding-block: clamp(2.75rem, 5vw, 4rem);
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.inner > div {
+  max-width: 46rem;
+}
+.inner p {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.inner h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+}

@@ -1,0 +1,46 @@
+/* SISTEMA VISUAL: modifica estos tokens para cambiar colores, fuentes y espaciados de toda la web. */
+:root {
+  color-scheme: dark;
+  --color-primary: #0d2138;
+  --color-secondary: #122e4e;
+  --color-accent: #f4b41a;
+  --color-accent-hover: #ffd16a;
+  --color-background: #0d2138;
+  --color-surface: #122e4e;
+  --color-surface-raised: #1b3f66;
+  --color-text: #ffffff;
+  --color-muted: #d9e2ec;
+  --color-border: #3d6085;
+  --color-on-dark: #ffffff;
+  --color-muted-dark: #d9e2ec;
+  --color-border-dark: #3d6085;
+  --font-sans: "Segoe UI", Arial, Helvetica, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-display: clamp(2.1rem, 6vw, 5rem);
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --radius-sm: 0.3rem;
+  --radius-md: 0.75rem;
+  --shadow-menu: 0 1rem 2rem #00000026;
+  --duration-fast: 160ms;
+  --duration-slide: 550ms;
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --container-width: 78rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --header-height: 5rem;
+}
+@media (min-width: 64rem) {
+  :root {
+    --header-height: 6rem;
+  }
+}

@@ -1,0 +1,11 @@
+.root {
+  position: relative;
+  isolation: isolate;
+  background: var(--color-primary);
+  color: var(--color-on-dark);
+  min-width: 0;
+}
+.foreground {
+  position: relative;
+  z-index: 1;
+}

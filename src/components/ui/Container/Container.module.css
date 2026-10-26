@@ -1,0 +1,5 @@
+.root {
+  width: min(100% - var(--gutter) * 2, var(--container-width));
+  margin-inline: auto;
+  min-width: 0;
+}

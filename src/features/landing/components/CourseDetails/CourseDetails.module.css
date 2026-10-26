@@ -1,0 +1,146 @@
+.root {
+  margin-top: 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: white;
+}
+.heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.heading p {
+  margin-bottom: 0.8rem;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+.heading h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+.close {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: white;
+}
+.description {
+  max-width: 75ch;
+  margin-top: 1.5rem;
+  color: var(--color-muted-dark);
+}
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  margin-block: 1.5rem;
+}
+.facts dt {
+  font-size: 0.75rem;
+  color: var(--color-muted-dark);
+}
+.facts dd {
+  margin: 0.25rem 0 0;
+  font-weight: 600;
+}
+.lists {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.lists h4 {
+  font-size: 1rem;
+}
+.lists ul {
+  padding-left: 1.25rem;
+  color: var(--color-muted-dark);
+}
+.action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+}
+.action p {
+  flex: 1 1 20rem;
+  max-width: 60ch;
+  color: var(--color-muted-dark);
+  font-size: 0.75rem;
+}
+@media (min-width: 48rem) {
+  .lists {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Imagen editorial con texto envolvente y llamada a la acción centrada. */
+.root {
+  display: flow-root;
+}
+.image {
+  float: left;
+  width: 43%;
+  margin: 0 1.6rem 1.1rem 0;
+  overflow: hidden;
+  border: 1px solid #3d608580;
+  border-radius: 0.65rem;
+}
+.image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.heading > div {
+  min-width: 0;
+}
+.heading h3 {
+  font-size: clamp(1.25rem, 2.3vw, 1.8rem);
+}
+.description {
+  line-height: 1.85;
+}
+.facts,
+.lists,
+.action {
+  clear: both;
+}
+.lists:empty {
+  display: none;
+}
+.action {
+  justify-content: center;
+  text-align: center;
+}
+.action p {
+  flex-basis: 100%;
+}
+@media (max-width: 39.999rem) {
+  .image {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.4rem;
+  }
+}
+
+.continuation {
+  clear: both;
+  margin-top: 1.4rem;
+  color: var(--color-muted-dark);
+  line-height: 1.85;
+}
+.action {
+  flex-direction: column;
+}
+.action p {
+  flex: none;
+}

@@ -1,0 +1,4 @@
+.root {
+  flex-shrink: 1;
+  max-width: 100%;
+}

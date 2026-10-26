@@ -1,0 +1,18 @@
+.root {
+  max-width: 46rem;
+}
+.eyebrow {
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.root h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+.description {
+  margin-top: 1rem;
+  color: var(--color-muted);
+}

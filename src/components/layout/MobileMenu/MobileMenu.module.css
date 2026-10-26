@@ -1,0 +1,49 @@
+/* Menú tipo disclosure: el atributo hidden retira sus enlaces del teclado cuando está cerrado. */
+.root {
+  display: block;
+}
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: white;
+}
+.panel {
+  position: absolute;
+  inset: 100% 0 auto;
+  padding: 1rem var(--gutter) 1.5rem;
+  background: var(--color-primary);
+  border-bottom: 1px solid var(--color-border-dark);
+  box-shadow: var(--shadow-menu);
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+}
+.panel > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 3.3rem;
+  padding: 0.75rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border-dark);
+}
+.panel > a:hover {
+  color: var(--color-accent);
+}
+.contact {
+  padding-top: 1.25rem;
+}
+.contact p {
+  margin-top: 0.65rem;
+  color: var(--color-muted-dark);
+  font-size: var(--text-xs);
+}
+@media (min-width: 64rem) {
+  .root {
+    display: none;
+  }
+}

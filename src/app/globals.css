@@ -1,0 +1,76 @@
+@import "../styles/tokens.css";
+@import "../styles/typography.css";
+@import "../styles/utilities.css";
+@import "../styles/animations.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+a {
+  color: inherit;
+  text-underline-offset: 0.25em;
+}
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 5px;
+}
+[hidden] {
+  display: none !important;
+}
+[id] {
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+::selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+/* Permite que los textos largos se adapten sin ensanchar el viewport móvil. */
+main,
+section,
+article,
+figure {
+  min-width: 0;
+}
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
+}

@@ -1,0 +1,100 @@
+.root {
+  grid-area: 1 / 1;
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--duration-slide) var(--ease-standard),
+    visibility var(--duration-slide);
+}
+.root[data-active="true"] {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+.grid {
+  display: flex;
+  align-items: center;
+  padding-block: 3rem;
+  min-height: 30rem;
+}
+.content {
+  min-width: 0;
+  width: 100%;
+  max-width: 44rem;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  font-weight: 650;
+  letter-spacing: 0.15em;
+}
+.eyebrow > span {
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.content h2 {
+  font-size: var(--text-display);
+  line-height: 1.06;
+  max-width: 17ch;
+  font-weight: 600;
+}
+.content h2 span {
+  color: var(--color-accent);
+}
+.description {
+  margin-top: 1.5rem;
+  max-width: 47ch;
+  color: #e1e6ee;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.actions > :first-child {
+  flex: 1 1 0;
+}
+.actions > .contactAction {
+  flex: 0 0 3.25rem;
+  padding-inline: 0.65rem;
+}
+.contactAction svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.contactNote {
+  margin-top: 1rem;
+  color: #d6dfeb;
+  font-size: 0.7rem;
+}
+@media (min-width: 40rem) {
+  .actions > :first-child {
+    flex: 0 1 auto;
+  }
+  .grid {
+    padding-block: 6rem 4rem;
+  }
+}
+@media (min-width: 64rem) {
+  .grid {
+    min-height: min(75svh, 48rem);
+    padding-block: 6rem 4rem;
+  }
+  .content h2 {
+    font-size: clamp(3.5rem, 5vw, 5.25rem);
+  }
+  .description {
+    font-size: var(--text-lg);
+  }
+}

@@ -1,0 +1,172 @@
+.root {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  background: var(--color-primary);
+}
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 2.5rem;
+  overflow: hidden;
+  border: 1px solid #f4b41a66;
+  border-radius: 1rem;
+  background: var(--color-secondary);
+  box-shadow: 0 1.5rem 3rem #0000002b;
+}
+.schedule,
+.direct {
+  min-width: 0;
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+}
+.schedule {
+  background: linear-gradient(
+    135deg,
+    var(--color-surface-raised),
+    var(--color-secondary)
+  );
+  border-bottom: 1px solid var(--color-border);
+}
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.label svg {
+  flex-shrink: 0;
+}
+.schedule h3 {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+}
+.hours {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-block: 0.75rem;
+  color: var(--color-accent);
+}
+.hours time {
+  font-size: clamp(1.9rem, 4vw, 3.5rem);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+.hours > span {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+.schedule > p,
+.schedule small {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+.schedule small {
+  display: block;
+  max-width: 45ch;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+}
+.icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #f4b41a66;
+  border-radius: 0.75rem;
+  color: var(--color-accent);
+}
+.icon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.direct h3 {
+  font-size: clamp(1.3rem, 3vw, 1.65rem);
+}
+.direct > p {
+  margin-block: 1rem 1.5rem;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+.contactButton {
+  width: 100%;
+}
+.contactHint {
+  display: block;
+  margin-top: 0.85rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+}
+.channels {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.4rem, 4vw, 2rem);
+  border-top: 1px solid var(--color-border);
+  background: #0d213866;
+}
+.channel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 0;
+}
+.channel > svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--color-accent);
+}
+.channel > div {
+  min-width: 0;
+}
+.channel h3 {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.channel p,
+.channel a {
+  margin-top: 0.35rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.channel a {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 1.5rem;
+}
+.social > p {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+@media (min-width: 40rem) {
+  .channels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 64rem) {
+  .panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .schedule {
+    border-bottom: 0;
+    border-right: 1px solid var(--color-border);
+  }
+  .channels {
+    grid-column: 1 / -1;
+  }
+}
