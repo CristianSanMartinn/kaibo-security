@@ -36,7 +36,7 @@ Prettier conserva el código vertical, con dos espacios de sangría y una propie
 | Colores, tamaños y espaciados compartidos | `src/styles/tokens.css` |
 | Tipografía | `src/styles/typography.css` |
 | Textos y fondo del Hero | `src/features/landing/data/hero.ts` |
-| Texto e imagen de Nosotros | `src/features/landing/data/about.ts` |
+| Texto e imagen de Nosotros | `src/features/landing/components/About/About.tsx` |
 | Beneficios | `src/features/landing/data/benefits.ts` |
 | Cursos y sus fichas | `src/features/landing/data/courses.ts` |
 | Campos disponibles de un curso | `src/features/landing/types/course.types.ts` |
@@ -150,3 +150,8 @@ Button.module.css define un brillo breve y respuesta al presionar. El movimiento
 CoursesCarousel usa la misma lista: mazo con profundidad desde 64rem y scroll horizontal nativo por debajo. Las tarjetas traseras se pueden activar en sus zonas visibles o con teclado; los selectores numerados permiten elegir cualquier curso. Las flechas avanzan hasta los extremos. No hay reproducción automática. getDeckOffset calcula la posición relativa; los controles y el detalle conservan manejo del foco. Las tarjetas posteriores no exponen sus botones internos al teclado mientras están atrás.
 
 Validación: Prettier, ESLint, TypeScript y build correctos; comprobación adicional de catálogo, imágenes, enlaces WhatsApp y HTML compilado aprobada. Se mantienen el formato vertical y comentarios de orientación en el código.
+
+
+## Nosotros y equipo en un solo componente
+
+About.tsx contiene ahora el texto de Nosotros, su botón, la galería, los contactos y el diálogo de las integrantes. About.module.css contiene todos sus estilos. Ya no se utilizan Team.tsx ni data/about.ts.

@@ -1,170 +1,145 @@
-/* El gradiente animado solo ocupa el borde del panel; el texto queda sobre un fondo sólido. */
-@property --about-border-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
 .root {
-  padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  padding-block: clamp(3.5rem, 7vw, 6rem);
   background: var(--color-surface);
 }
 
-.layout {
+/* ---------- Parte superior: texto + foto ---------- */
+.top {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 }
-
-.figure {
+.text h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+  line-height: 1.2;
+}
+.text > p {
+  max-width: 32rem;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.photo {
+  margin: 0;
   min-width: 0;
 }
-
 .photoFrame {
   position: relative;
-  isolation: isolate;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: 1rem;
+  border-radius: var(--radius-md);
   background: var(--color-secondary);
-  box-shadow:
-    0 1.5rem 3rem #00000040,
-    0 0 0 6px var(--color-primary);
 }
-
-.photo {
+.photoFrame img {
   object-fit: cover;
-  object-position: center;
+}
+.photo figcaption {
+  margin-top: 0.6rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
 }
 
-.photoShade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, #0b1729e6, transparent 55%);
-}
-
-.photoLabel {
-  position: absolute;
-  inset: auto 1.25rem 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  color: white;
-  font-size: var(--text-sm);
-  font-weight: 600;
-}
-
-.photoIcon {
-  display: grid;
-  flex-shrink: 0;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border: 1px solid #f4b41a80;
-  border-radius: 0.6rem;
-  background: #0d213880;
-  color: var(--color-accent);
-}
-
-.panel {
-  position: relative;
-  min-width: 0;
-  padding: clamp(1.5rem, 4vw, 3rem);
-  border: 2px solid transparent;
-  border-radius: 1rem;
-  background:
-    linear-gradient(var(--color-primary), var(--color-primary)) padding-box,
-    conic-gradient(
-        from var(--about-border-angle),
-        #283c54 0deg,
-        #283c54 275deg,
-        #f4b41a 315deg,
-        #fff4d5 333deg,
-        #f4b41a 345deg,
-        #283c54 360deg
-      )
-      border-box;
-  color: white;
-  box-shadow:
-    0 1.5rem 3rem #00000040,
-    0 0.25rem 0.75rem #00000026;
-  animation: borderOrbit 8s linear infinite;
-}
-
-.panel:hover,
-.panel:focus-within {
-  animation-play-state: paused;
-}
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 1.25rem;
-  color: var(--color-accent);
-  font-size: 0.65rem;
-  font-weight: 650;
-  letter-spacing: 0.14em;
-}
-
-.eyebrow > span {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 1px;
-  background: currentColor;
-}
-
-.title {
-  max-width: 19ch;
-  font-size: clamp(1.9rem, 3vw, 2.7rem);
-  line-height: 1.15;
-}
-
-.copy {
-  display: grid;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  color: var(--color-muted-dark);
-  font-size: var(--text-sm);
-  line-height: 1.85;
-}
-
-.action {
-  width: 100%;
+/* ---------- Contacto directo ---------- */
+.contact {
   margin-top: 2rem;
 }
+.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+.whatsapp:hover {
+  filter: brightness(1.08);
+}
+.contactList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.contactList a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.contactList svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+.hours {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
 
-@keyframes borderOrbit {
-  to {
-    --about-border-angle: 360deg;
-  }
+/* ---------- Equipo: lista 2x2 con fotos pequeñas ---------- */
+.team {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 3rem;
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.team li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding-block: 1.4rem;
+  border-top: 1px solid var(--color-border);
+}
+.avatar {
+  flex-shrink: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--color-secondary);
+}
+.team h3 {
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+.role {
+  margin-top: 0.15rem;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+}
+.does {
+  margin-top: 0.4rem;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 @media (min-width: 40rem) {
-  .action {
-    width: auto;
+  .team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 64rem) {
-  .layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-    gap: clamp(2rem, 4vw, 4rem);
+  .top {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 4rem;
   }
-
-  .photoFrame {
-    aspect-ratio: 1 / 1;
-  }
-
-  .photoLabel {
-    inset: auto 1.75rem 1.75rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .panel {
-    animation: none;
+  /* La foto va a la izquierda en escritorio, aunque en el código esté después. */
+  .photo {
+    order: -1;
   }
 }
