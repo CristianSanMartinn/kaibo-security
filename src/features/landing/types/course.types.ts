@@ -10,6 +10,18 @@ export type Course = {
   duration?: string;
   modality?: string;
   price?: number;
+  startDate?: string;
+  endDate?: string;
+  schedule?: string;
+  modalityNote?: string;
+  notice?: string;
+  registrationLabel?: string;
+  sections?: {
+    title: string;
+    paragraphs?: string[];
+    items?: string[];
+    notice?: string;
+  }[];
   contents?: string[];
   requirements?: string[];
 };

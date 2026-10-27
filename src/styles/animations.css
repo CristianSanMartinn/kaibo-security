@@ -1,20 +1,14 @@
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  /* Los cursos mantienen el movimiento solicitado en todas las plataformas. */
-  *:not([data-course-motion="enabled"], [data-course-motion="enabled"] *),
-  *:not(
-      [data-course-motion="enabled"],
-      [data-course-motion="enabled"] *
-    )::before,
-  *:not(
-      [data-course-motion="enabled"],
-      [data-course-motion="enabled"] *
-    )::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

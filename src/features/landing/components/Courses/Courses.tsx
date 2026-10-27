@@ -1,6 +1,6 @@
 import Container from "@/components/ui/Container/Container";
 import SectionHeading from "@/components/ui/SectionHeading/SectionHeading";
-import CoursesCarousel from "../CoursesCarousel/CoursesCarousel";
+import CoursesGrid from "../CoursesGrid/CoursesGrid";
 import { courses } from "../../data/courses";
 import styles from "./Courses.module.css";
 
@@ -14,19 +14,12 @@ export default function Courses() {
     >
       <Container>
         <SectionHeading
-          eyebrow="EXPLORA TU PRÓXIMO PASO"
-          title="Capacitación para seguir avanzando."
+          title="Elige tu curso."
           id="courses-title"
         >
-          <p>
-            Conoce nuestras propuestas de formación y revisa el detalle del
-            programa que te interesa.
-          </p>
+          <p>Toca un curso para ver las fechas, el valor y cómo inscribirte.</p>
         </SectionHeading>
-        <CoursesCarousel courses={courses} />
-        <p className={styles.note}>
-          Oferta y condiciones pendientes de validación.
-        </p>
+        <CoursesGrid courses={courses} />
       </Container>
     </section>
   );

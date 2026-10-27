@@ -155,3 +155,15 @@ Validación: Prettier, ESLint, TypeScript y build correctos; comprobación adici
 ## Nosotros y equipo en un solo componente
 
 About.tsx contiene ahora el texto de Nosotros, su botón, la galería, los contactos y el diálogo de las integrantes. About.module.css contiene todos sus estilos. Ya no se utilizan Team.tsx ni data/about.ts.
+
+## Información comercial de cursos incorporada
+
+Los datos enviados por el cliente se editan en src/features/landing/data/courses.ts. Guardia: $110.000 CLP, 90 horas en 12 días hábiles, online mixta, del 9 al 24 de noviembre de 2026. Conserje: $100.000 CLP, 60 horas en 8 días hábiles, online mixta, del 9 al 18 de noviembre de 2026. Ambos informan horario de lunes a viernes de 08:30 a 17:30. Bastón y Esposas: $50.000 CLP, presencial, 8 horas el 9 de noviembre de 2026, horario y lugar de capacitación por confirmar.
+
+Los $40.000 CLP mencionados para acreditación se muestran separados del valor del curso. En Conserje, su aplicación se mantiene pendiente de confirmación. Las listas documentales, la advertencia sobre ClaveÚnica, las condiciones de Capacitaciones Desmar y la ausencia de credencial automática conservan las aclaraciones del material recibido. No se validaron como asesoría normativa ni se añadieron requisitos nuevos.
+
+CourseDetails presenta modalidad, duración, precio, fechas y horario a la vista, con avisos visibles y apartados desplegables para pagos, documentación y servicios. sections permite añadir párrafos, listas y avisos sin editar el componente. registrationLabel cambia el texto del botón de inscripción. CCTV conserva su información anterior, sin valores, fechas ni modalidades inventados. La dirección de inscripción es un punto de atención, no se presenta como sede confirmada de Bastón y Esposas.
+
+## Cursos: grilla y diálogo nativo
+
+La sección usa ahora CoursesGrid/CoursesGrid.tsx y CoursesGrid.module.css. CourseCard es una tarjeta completa clicable y CourseDetails contiene el diálogo nativo, su bloqueo de scroll y su barra inferior fija. Se retiraron CoursesCarousel y utils/deck.ts. Los textos siguen en data/courses.ts. La documentación actual de esta etapa está en docs/CURSOS-MODAL.md.

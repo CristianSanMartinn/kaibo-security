@@ -1,4 +1,14 @@
-.root {
+/* Mismo CTA de WhatsApp en encabezado, contacto y modal. */
+.root.root {
   flex-shrink: 1;
   max-width: 100%;
+  background: #128044;
+  color: #ffffff;
+  box-shadow: none;
+}
+.root.root:hover:not(:disabled),
+.root.root:focus-visible {
+  background: #0d6d38;
+  color: #ffffff;
+  box-shadow: none;
 }

@@ -52,8 +52,8 @@
   min-height: 2.75rem;
   padding: 0.65rem 1.25rem;
   border-radius: var(--radius-md);
-  background: var(--color-accent);
-  color: var(--color-primary);
+  background: #128044;
+  color: #ffffff;
   font-size: 0.9rem;
   font-weight: 650;
 }

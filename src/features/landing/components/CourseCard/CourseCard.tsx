@@ -1,88 +1,52 @@
 import Image from "next/image";
-import { ArrowUpRight, Clock3, Monitor } from "lucide-react";
+import { ArrowRight, Clock3, Monitor } from "lucide-react";
 import type { Course } from "../../types/course.types";
 import styles from "./CourseCard.module.css";
 
 type Props = {
   course: Course;
-  position: number;
-  selected: boolean;
-  preview?: boolean;
-  detailsId: string;
   onSelect: (course: Course, trigger: HTMLButtonElement) => void;
 };
 
-export default function CourseCard({
-  course,
-  position,
-  selected,
-  preview = false,
-  detailsId,
-  onSelect,
-}: Props) {
+export default function CourseCard({ course, onSelect }: Props) {
   return (
-    <article
-      className={styles.root}
-      data-selected={selected}
-      data-preview={preview}
-      onClick={(event) => {
-        if ((event.target as HTMLElement).closest("button, a")) return;
-        const trigger = event.currentTarget.querySelector<HTMLButtonElement>(
-          "[data-course-action]",
-        );
-        if (trigger) onSelect(course, trigger);
-      }}
-    >
-      {/* Cabecera numerada e imagen interior, siguiendo la referencia visual. */}
-      <div className={styles.topline}>
-        <span className={styles.number}>
-          {String(position).padStart(2, "0")}
-        </span>
-        <p className={styles.category}>{course.category}</p>
-      </div>
+    <article className={styles.root}>
       <div className={styles.image}>
         <Image
           src={course.image}
           alt={course.imageAlt}
           fill
-          sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 46vw, 86vw"
+          sizes="(min-width: 80rem) 290px, (min-width: 64rem) 23vw, (min-width: 40rem) 46vw, 92vw"
           loading="lazy"
-          unoptimized
         />
       </div>
       <div className={styles.body}>
+        <p className={styles.category}>{course.category}</p>
         <h3>{course.title}</h3>
-        <p
-          data-course-description
-          className={styles.description}
-        >
-          {course.description}
-        </p>
-        <div
-          data-course-facts
-          className={styles.facts}
-        >
-          {course.duration && (
-            <span>
-              <Clock3
-                size={14}
-                aria-hidden="true"
-              />
-              {course.duration}
-            </span>
-          )}
-          {course.modality && (
-            <span>
-              <Monitor
-                size={14}
-                aria-hidden="true"
-              />
-              {course.modality}
-            </span>
-          )}
-        </div>
+        <p className={styles.description}>{course.description}</p>
+        {(course.duration || course.modality) && (
+          <div className={styles.facts}>
+            {course.duration && (
+              <span>
+                <Clock3
+                  size={16}
+                  aria-hidden="true"
+                />
+                {course.duration}
+              </span>
+            )}
+            {course.modality && (
+              <span>
+                <Monitor
+                  size={16}
+                  aria-hidden="true"
+                />
+                {course.modality}
+              </span>
+            )}
+          </div>
+        )}
         <div className={styles.bottom}>
-          {/* No se inventa un precio: el dato es opcional y admite incluso un valor cero. */}
           <p className={styles.price}>
             {course.price !== undefined
               ? new Intl.NumberFormat("es-CL", {
@@ -91,21 +55,25 @@ export default function CourseCard({
                   maximumFractionDigits: 0,
                 }).format(course.price)
               : "Consultar valor"}
+            {course.price !== undefined && <small>CLP</small>}
           </p>
-          <button
-            type="button"
+          <span
             className={styles.action}
-            data-course-action
-            aria-expanded={selected}
-            aria-controls={detailsId}
-            onClick={(event) => onSelect(course, event.currentTarget)}
+            aria-hidden="true"
           >
-            Más información
-            <ArrowUpRight aria-hidden="true" />
-            <span className="sr-only"> sobre {course.title}</span>
-          </button>
+            Ver detalle <ArrowRight size={18} />
+          </span>
         </div>
       </div>
+      {/* Un único botón cubre la tarjeta completa y funciona también con teclado. */}
+      <button
+        type="button"
+        className={styles.trigger}
+        aria-label={"Ver detalle de " + course.title}
+        aria-haspopup="dialog"
+        aria-controls="course-dialog"
+        onClick={(event) => onSelect(course, event.currentTarget)}
+      />
     </article>
   );
 }

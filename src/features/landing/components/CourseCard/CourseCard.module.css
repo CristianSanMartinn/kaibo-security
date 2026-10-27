@@ -1,217 +1,131 @@
-/* Tarjeta editorial: cabecera, imagen interior y acción alineada al pie. */
 .root {
+  position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-width: 0;
-  height: 100%;
-  padding: clamp(1.15rem, 2.4vw, 1.65rem);
-  overflow: hidden;
-  border: 1px solid #3d608580;
-  border-radius: 0.9rem;
-  background: linear-gradient(155deg, #122e4e, #0d2138);
-  box-shadow: 0 1rem 2.5rem #00000020;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
   transition:
-    transform 240ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
-}
-.root:focus-within,
-.root[data-selected="true"] {
-  border-color: var(--color-accent);
-  box-shadow:
-    0 0 0 1px #f4b41a44,
-    0 1rem 2.5rem #00000030;
-}
-.topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 1.2rem;
-}
-.number {
-  color: var(--color-accent);
-  font-size: 0.75rem;
-  font-weight: 650;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.08em;
-}
-.category {
-  color: var(--color-muted);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-align: right;
+    transform 150ms ease,
+    border-color 150ms ease;
 }
 .image {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
-  border: 1px solid #ffffff14;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
   background: var(--color-secondary);
 }
 .image img {
   object-fit: cover;
-  transition: transform 400ms ease;
+  object-position: center;
 }
 .body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding-top: 1.4rem;
+  min-width: 0;
+  padding: 1.25rem;
+}
+.category {
+  margin-bottom: 0.75rem;
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+.category::first-letter {
+  text-transform: uppercase;
 }
 .body h3 {
   min-height: 2.7em;
-  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  font-size: 1.15rem;
   line-height: 1.35;
 }
 .description {
-  margin-top: 0.8rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-top: 0.75rem;
   color: var(--color-muted);
-  font-size: 0.85rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 .facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  display: grid;
+  gap: 0.5rem;
   margin-top: 1rem;
   color: var(--color-muted);
-  font-size: 0.75rem;
-}
-.facts:empty {
-  display: none;
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 .facts span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.facts svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
 }
 .bottom {
   display: grid;
-  gap: 1.4rem;
+  gap: 0.75rem;
   margin-top: auto;
-  padding-top: 1.3rem;
+  padding-top: 1.25rem;
 }
 .price {
   display: flex;
   align-items: baseline;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  color: var(--color-text);
+  font-size: 1.3rem;
+  font-weight: 650;
+}
+.price small {
   color: var(--color-muted);
   font-size: 0.8rem;
+  font-weight: 400;
 }
-.price::before {
-  content: "";
-  flex-shrink: 0;
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 0.5rem #f4b41a70;
-}
-/* Conserva la semántica de botón porque abre el detalle dentro de la página. */
 .action {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  width: 100%;
-  min-height: 3.1rem;
-  padding-top: 1rem;
-  border: 0;
-  border-top: 1px solid #3d608580;
-  background: transparent;
-  color: var(--color-text);
-  font: inherit;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-align: left;
-  cursor: pointer;
-  transition: color 180ms ease;
-}
-.action svg {
-  flex-shrink: 0;
-  width: 1.1rem;
-  height: 1.1rem;
-  transition: transform 180ms ease;
-}
-.action:focus-visible,
-.action:active {
+  min-height: 2.75rem;
+  border-top: 1px solid var(--color-border);
   color: var(--color-accent);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
-.action:active svg {
-  transform: translate(2px, -2px);
+.trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  cursor: pointer;
 }
-@media (hover: hover) {
-  .root:hover {
-    border-color: #f4b41a80;
-    box-shadow: 0 1rem 2.5rem #00000038;
-  }
-  .root:hover .image img {
-    transform: scale(1.035);
-  }
-  .action:hover {
-    color: var(--color-accent);
-  }
-  .action:hover svg {
-    transform: translate(3px, -3px);
-  }
+.trigger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
-/* El mazo conserva su altura sin superponer los textos de las tarjetas traseras. */
-.root[data-preview="true"] .body {
-  visibility: hidden;
-}
-
-/* La luz recorre solo el borde; el contenido conserva un fondo sólido. */
-@property --course-border-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-.root {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(155deg, #122e4e, #0d2138) padding-box,
-    conic-gradient(
-        from var(--course-border-angle),
-        var(--course-border-base, #3d6085) 0deg,
-        var(--course-border-base, #3d6085) 275deg,
-        #f4b41a 315deg,
-        #fff4d5 333deg,
-        #f4b41a 345deg,
-        var(--course-border-base, #3d6085) 360deg
-      )
-      border-box;
-  animation: cardOrbit 8s linear infinite;
-}
-.root:hover,
-.root:focus-within,
-.root[data-selected="true"] {
+.root:focus-within {
   border-color: var(--color-accent);
-  box-shadow: 0 0 1.25rem #f4b41a20;
 }
-@keyframes cardOrbit {
-  to {
-    --course-border-angle: 360deg;
-  }
-}
-
-/* Elevación al pasar el ratón: no altera la posición de las tarjetas vecinas. */
 @media (hover: hover) and (pointer: fine) {
   .root:hover {
-    transform: translateY(-6px);
-    box-shadow:
-      0 1.4rem 2.6rem #00000048,
-      0 0 1.1rem #f4b41a18;
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
   }
 }
-
-/* El dorado no oculta la estela al usar ratón o teclado. */
-.root:hover,
-.root:focus-within,
-.root[data-selected="true"] {
-  --course-border-base: #bb861a;
-  border-color: transparent;
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
 }

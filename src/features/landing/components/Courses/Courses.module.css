@@ -3,8 +3,3 @@
   padding-block: clamp(3.5rem, 7vw, 6rem);
   background: var(--color-surface);
 }
-.note {
-  margin-top: 1.5rem;
-  color: var(--color-muted);
-  font-size: 0.7rem;
-}

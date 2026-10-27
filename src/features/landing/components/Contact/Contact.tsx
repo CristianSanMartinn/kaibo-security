@@ -1,12 +1,16 @@
-import { Clock3, Mail, MapPin, ArrowUpRight } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { ArrowUpRight, Clock3, Mail, MapPin } from "lucide-react";
 import Container from "@/components/ui/Container/Container";
 import SectionHeading from "@/components/ui/SectionHeading/SectionHeading";
-import WhatsAppButton from "@/components/ui/WhatsAppButton/WhatsAppButton";
 import SocialLinks from "@/components/ui/SocialLinks/SocialLinks";
 import { siteConfig, officeHours } from "@/config/site";
+import { courses } from "../../data/courses";
+import ContactForm from "../ContactForm/ContactForm";
 import styles from "./Contact.module.css";
+
+// La ubicación y los canales se actualizan desde src/config/site.ts.
+const mapUrl =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent(siteConfig.address + ", Chile");
 
 export default function Contact() {
   return (
@@ -18,92 +22,95 @@ export default function Contact() {
     >
       <Container>
         <SectionHeading
-          eyebrow="CONTACTO DIRECTO"
-          title="Hablemos. Aquí tienes cómo y cuándo."
+          eyebrow="CONTACTO"
+          title="Cuéntanos qué necesitas."
           id="contact-title"
         >
           <p>
-            Tu consulta, nuestros canales y el horario de atención: todo en un
-            mismo lugar.
+            Completa el formulario y te respondemos en nuestro horario de
+            atención.
           </p>
         </SectionHeading>
-        {/* Un panel compartido mantiene horario y contacto juntos en todos los anchos. */}
-        <div className={styles.panel}>
-          <div className={styles.schedule}>
-            <span className={styles.label}>
-              <Clock3
-                size={20}
-                aria-hidden="true"
-              />
-              HORARIO DE ATENCIÓN
-            </span>
-            <h3>{officeHours.days}</h3>
-            <div
-              className={styles.hours}
-              aria-label={
-                "De " + officeHours.opens + " a " + officeHours.closes
-              }
+        <div className={styles.layout}>
+          {/* El formulario recibe solo los títulos, sin cargar el detalle de los cursos. */}
+          <ContactForm
+            courses={courses.map((course) => course.title)}
+            whatsapp={siteConfig.whatsapp}
+          />
+          <aside
+            className={styles.side}
+            aria-label="Horario, correo y ubicación"
+          >
+            <div className={styles.card}>
+              <span className={styles.label}>
+                <Clock3
+                  size={20}
+                  aria-hidden="true"
+                />
+                Horario de atención
+              </span>
+              <p className={styles.days}>{officeHours.days}</p>
+              <div
+                className={styles.hours}
+                aria-label={
+                  "De " + officeHours.opens + " a " + officeHours.closes
+                }
+              >
+                <time dateTime={officeHours.opens}>{officeHours.opens}</time>
+                <span>a</span>
+                <time dateTime={officeHours.closes}>{officeHours.closes}</time>
+              </div>
+              <p className={styles.note}>
+                Horario de Santiago de Chile. Para una visita presencial,
+                coordina previamente con nosotros.
+              </p>
+            </div>
+            <div className={styles.card}>
+              <span className={styles.label}>
+                <Mail
+                  size={20}
+                  aria-hidden="true"
+                />
+                Correo
+              </span>
+              <a
+                className={styles.email}
+                href={"mailto:" + siteConfig.email}
+              >
+                {siteConfig.email}
+              </a>
+            </div>
+            <a
+              className={styles.location}
+              href={mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <time dateTime={officeHours.opens}>{officeHours.opens}</time>
-              <span>a</span>
-              <time dateTime={officeHours.closes}>{officeHours.closes}</time>
-            </div>
-            <p>Horario de Santiago de Chile.</p>
-            <small>
-              Para una visita presencial, coordina previamente con nosotros.
-            </small>
-          </div>
-          <div className={styles.direct}>
-            <span className={styles.icon}>
-              <FontAwesomeIcon
-                icon={faWhatsapp}
-                aria-hidden="true"
-              />
-            </span>
-            <h3>Conversemos por WhatsApp</h3>
-            <p>
-              Consulta por cursos, requisitos o capacitación para tu empresa.
-            </p>
-            <WhatsAppButton
-              label="Escribir por WhatsApp"
-              className={styles.contactButton}
-            />
-            <span className={styles.contactHint}>
-              Te orientamos durante nuestro horario de atención.
-            </span>
-          </div>
-          <div className={styles.channels}>
-            <div className={styles.channel}>
-              <Mail
-                size={21}
-                aria-hidden="true"
-              />
-              <div>
-                <h3>Correo electrónico</h3>
-                <a href={"mailto:" + siteConfig.email}>
-                  {siteConfig.email}
-                  <ArrowUpRight
-                    size={14}
-                    aria-hidden="true"
-                  />
-                </a>
-              </div>
-            </div>
-            <div className={styles.channel}>
               <MapPin
-                size={21}
+                size={28}
                 aria-hidden="true"
               />
-              <div>
-                <h3>Encuéntranos</h3>
-                <p>{siteConfig.address}</p>
-              </div>
+              <span className={styles.locationText}>
+                <strong>Nuestra oficina</strong>
+                <span>{siteConfig.address}</span>
+              </span>
+              <span className={styles.locationCta}>
+                Cómo llegar
+                <ArrowUpRight
+                  size={18}
+                  aria-hidden="true"
+                />
+                <span className="sr-only">
+                  {" "}
+                  (abre Google Maps en una pestaña nueva)
+                </span>
+              </span>
+            </a>
+            <div className={styles.social}>
+              <p>También estamos en redes</p>
+              <SocialLinks />
             </div>
-          </div>
-        </div>
-        <div className={styles.social}>
-          <p>También estamos en redes</p>
-          <SocialLinks />
+          </aside>
         </div>
       </Container>
     </section>
