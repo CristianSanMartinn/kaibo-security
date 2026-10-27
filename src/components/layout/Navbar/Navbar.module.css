@@ -66,3 +66,16 @@
     text-decoration-thickness: 2px;
   }
 }
+
+/* WhatsApp del encabezado, tanto en escritorio como en el menú móvil. */
+.root a[href^="https://wa.me/"] {
+  background: #128044;
+  color: #ffffff;
+  box-shadow: 0 0.3rem 1rem #12804426;
+}
+.root a[href^="https://wa.me/"]:hover,
+.root a[href^="https://wa.me/"]:focus-visible {
+  background: #0d6d38;
+  color: #ffffff;
+  box-shadow: 0 0.5rem 1.5rem #12804438;
+}
