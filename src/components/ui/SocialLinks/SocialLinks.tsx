@@ -1,5 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faWhatsapp, faTiktok, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import {
+  faWhatsapp,
+  faTiktok,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 import { socialLinks } from "@/config/social";
 import styles from "./SocialLinks.module.css";
 
@@ -10,18 +14,26 @@ const icons = {
   instagram: faInstagram,
 };
 
-export default function SocialLinks() {
+// El footer usa colores de marca; otros lugares conservan la variante original.
+export default function SocialLinks({
+  variant = "default",
+}: {
+  variant?: "default" | "brand";
+}) {
   const links = socialLinks.filter((item) => /^https:\/\//.test(item.href));
   if (!links.length) return null;
 
   return (
     <ul
-      className={styles.root}
+      className={[styles.root, variant === "brand" ? styles.brand : ""].join(
+        " ",
+      )}
       aria-label="Redes sociales oficiales"
     >
       {links.map((item) => (
         <li key={item.platform}>
           <a
+            className={styles[item.platform]}
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"

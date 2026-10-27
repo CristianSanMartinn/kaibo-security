@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import Footer from "@/components/layout/Footer/Footer";
+import FloatingSocial from "@/components/ui/FloatingSocial/FloatingSocial";
 import { siteConfig } from "@/config/site";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         {/* Navbar y Footer se montan aquí una sola vez para todas las rutas. */}
         <Footer />
+        <FloatingSocial />
       </body>
     </html>
   );

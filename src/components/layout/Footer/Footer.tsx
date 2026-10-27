@@ -3,7 +3,6 @@ import Image from "next/image";
 import Container from "@/components/ui/Container/Container";
 import SocialLinks from "@/components/ui/SocialLinks/SocialLinks";
 import { siteConfig } from "@/config/site";
-import { navigation } from "@/config/navigation";
 import { courses } from "@/features/landing/data/courses";
 import styles from "./Footer.module.css";
 
@@ -16,24 +15,30 @@ export default function Footer() {
       <Container>
         <div className={styles.grid}>
           <div className={styles.identity}>
+            {/* Identidad de marca: logo primero, nombre y descripción debajo. */}
+            {siteConfig.logo && (
+              <Link
+                href="/#inicio"
+                className={styles.logo}
+                aria-label="Kaibo Security, volver al inicio"
+              >
+                <Image
+                  src={siteConfig.logo.src}
+                  width={siteConfig.logo.width}
+                  height={siteConfig.logo.height}
+                  sizes="112px"
+                  alt="Kaibo Security"
+                />
+              </Link>
+            )}
             <p className={styles.companyName}>Kaibo Security</p>
-            <p>{siteConfig.description}</p>
+            <p className={styles.description}>{siteConfig.description}</p>
           </div>
-          <div className={styles.column}>
-            <h2>Explora</h2>
-            <nav aria-label="Navegación del pie de página">
-              {navigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={"/" + item.href}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-          <div className={styles.column}>
-            <h2>Capacitaciones</h2>
+          <nav
+            className={styles.column}
+            aria-label="Cursos del pie de página"
+          >
+            <h2>Nuestros cursos</h2>
             {courses.map((course) => (
               <Link
                 key={course.id}
@@ -42,7 +47,7 @@ export default function Footer() {
                 {course.title}
               </Link>
             ))}
-          </div>
+          </nav>
           <div className={styles.column}>
             <h2>Contacto</h2>
             {siteConfig.email && (
@@ -52,27 +57,17 @@ export default function Footer() {
             )}
             {siteConfig.address && <p>{siteConfig.address}</p>}
             {siteConfig.hours && <p>{siteConfig.hours}</p>}
-            <Link href="/#contacto">Ver canales de atención</Link>
-          </div>
-        </div>
-        {/* Franja de marca y redes al pie del Footer, antes del copyright. */}
-        <div className={styles.socialStrip}>
-          {siteConfig.logo && (
             <Link
-              href="/#inicio"
-              className={styles.bottomLogo}
-              aria-label="Kaibo Security, volver al inicio"
+              href="/#contacto"
+              className={styles.contactLink}
             >
-              <Image
-                src={siteConfig.logo.src}
-                width={siteConfig.logo.width}
-                height={siteConfig.logo.height}
-                alt="Kaibo Security"
-                unoptimized
-              />
+              Escríbenos
             </Link>
-          )}
-          <SocialLinks />
+            <div className={styles.social}>
+              <span className={styles.socialLabel}>Síguenos</span>
+              <SocialLinks variant="brand" />
+            </div>
+          </div>
         </div>
         <div className={styles.bottom}>
           <p>© {copyrightYear} Kaibo Security.</p>

@@ -1,0 +1,131 @@
+/* Ajusta aquí la distancia a la esquina. Respetamos el área segura del teléfono. */
+.root {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 20;
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  width: 4.5rem;
+}
+
+.track {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.fab {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffffff40;
+  border-radius: 50%;
+  color: #ffffff;
+  box-shadow: 0 0.4rem 1.2rem #00000040;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(0.6rem) scale(0.92);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    visibility 220ms ease;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.whatsapp {
+  background: #128044;
+}
+
+.instagram {
+  background: linear-gradient(135deg, #703ac7, #bb245d, #b64e18);
+}
+
+.tiktok {
+  background: #141820;
+}
+
+.icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 1.8rem;
+}
+
+.tooltip {
+  position: absolute;
+  right: calc(100% + 0.7rem);
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fab:focus-visible .tooltip {
+  opacity: 1;
+}
+
+.controls {
+  display: flex;
+}
+
+/* Puntos de 3px con un área táctil de 24px, sin fondo ni borde visible. */
+.dot {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted);
+}
+
+.dot span {
+  width: 0.1875rem;
+  height: 0.1875rem;
+  border-radius: 50%;
+  background: var(--color-muted);
+  opacity: 0.45;
+}
+
+.dot[aria-pressed="true"] span {
+  background: var(--color-accent);
+  opacity: 0.85;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .active:hover {
+    transform: translateY(-3px);
+  }
+
+  .active:hover .tooltip {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media print {
+  .root {
+    display: none;
+  }
+}

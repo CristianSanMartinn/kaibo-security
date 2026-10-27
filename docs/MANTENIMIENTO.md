@@ -167,3 +167,12 @@ CourseDetails presenta modalidad, duración, precio, fechas y horario a la vista
 ## Cursos: grilla y diálogo nativo
 
 La sección usa ahora CoursesGrid/CoursesGrid.tsx y CoursesGrid.module.css. CourseCard es una tarjeta completa clicable y CourseDetails contiene el diálogo nativo, su bloqueo de scroll y su barra inferior fija. Se retiraron CoursesCarousel y utils/deck.ts. Los textos siguen en data/courses.ts. La documentación actual de esta etapa está en docs/CURSOS-MODAL.md.
+
+## Botón flotante de redes
+
+El acceso de la esquina inferior derecha se monta desde `src/app/layout.tsx`.
+Su lógica y sus estilos están en `src/components/ui/FloatingSocial/`.
+Los enlaces se editan en `src/config/social.ts`; el número de WhatsApp se obtiene de `src/config/site.ts`.
+`ROTATION_MS` controla el intervalo entre redes. La rotación se pausa mientras el mouse está encima o se navega por teclado. Los tres puntos permiten elegir una red sin desactivar la rotación. Reducir movimiento elimina la transición visual, pero las redes siguen alternándose.
+
+

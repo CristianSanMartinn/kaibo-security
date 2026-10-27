@@ -34,3 +34,42 @@
   width: 1.25rem;
   height: 1.25rem;
 }
+
+/* Colores de marca reservados para la variante del footer. */
+.brand {
+  gap: 0.65rem;
+}
+
+.brand a {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid #ffffff14;
+  border-radius: 0.8rem;
+  background: #ffffff04;
+}
+
+.brand a.whatsapp {
+  color: #25d366;
+}
+
+.brand a.instagram {
+  color: #f777a5;
+  background: linear-gradient(135deg, #833ab422, #e1306c18, #fcb04512);
+}
+
+.brand a.tiktok {
+  color: #ffffff;
+}
+
+.brand a.tiktok svg {
+  filter: drop-shadow(-1px -1px 0 #25f4ee) drop-shadow(1px 1px 0 #fe2c55);
+}
+
+.brand svg {
+  font-size: 1.25rem;
+}
+
+.brand a:hover {
+  background-color: #ffffff0d;
+  border-color: #ffffff40;
+}
