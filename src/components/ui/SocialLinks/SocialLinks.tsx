@@ -1,9 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faWhatsapp,
-  faTiktok,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp, faTiktok, faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { socialLinks } from "@/config/social";
 import styles from "./SocialLinks.module.css";
 
@@ -12,6 +8,7 @@ const icons = {
   whatsapp: faWhatsapp,
   tiktok: faTiktok,
   instagram: faInstagram,
+  facebook: faFacebook,
 };
 
 // El footer usa colores de marca; otros lugares conservan la variante original.

@@ -1,6 +1,6 @@
 import { getWhatsAppUrl } from "./site";
 
-export type SocialPlatform = "whatsapp" | "tiktok" | "instagram";
+export type SocialPlatform = "whatsapp" | "tiktok" | "instagram" | "facebook";
 export type SocialLink = {
   platform: SocialPlatform;
   label: string;
@@ -27,5 +27,10 @@ export const socialLinks: SocialLink[] = [
     platform: "instagram",
     label: "Instagram",
     href: "https://www.instagram.com/kaibosecurity/",
+  },
+  {
+    platform: "facebook",
+    label: "facebook",
+    href: "https://www.facebook.com/p/Kaibo-security-spa-61580104821592/",
   },
 ];

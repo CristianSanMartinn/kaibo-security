@@ -2,11 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faInstagram,
-  faTiktok,
-  faWhatsapp,
-} from "@fortawesome/free-brands-svg-icons";
+import {  faInstagram,  faTiktok,  faWhatsapp, faFacebook} from "@fortawesome/free-brands-svg-icons";
 import { socialLinks } from "@/config/social";
 import styles from "./FloatingSocial.module.css";
 
@@ -14,6 +10,7 @@ const icons = {
   whatsapp: faWhatsapp,
   instagram: faInstagram,
   tiktok: faTiktok,
+  facebook: faFacebook,
 };
 
 // Los destinos se mantienen en config/social.ts; WhatsApp usa config/site.ts.
