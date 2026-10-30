@@ -25,8 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Kaibo Security",
   },
 
-  description:
-    "Cursos OS10 y capacitación profesional en seguridad privada para personas y empresas en Santiago de Chile.",
+  description: siteConfig.description,
 
   alternates: {
     canonical: "/",
@@ -47,24 +46,21 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    locale: "es_CL",
-
-    url: siteConfig.url ?? undefined,
-
-    siteName: "Kaibo Security",
+    locale: siteConfig.locale,
+    url: siteConfig.url || undefined,
+    siteName: siteConfig.name,
 
     title:
       "Kaibo Security | Formación en Seguridad Privada",
 
-    description:
-      "Cursos OS10 y capacitación profesional en seguridad privada para personas y empresas.",
+    description: siteConfig.description,
 
     images: [
       {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Kaibo Security - Formación en Seguridad Privada",
+        url: siteConfig.openGraphImage.src,
+        width: siteConfig.openGraphImage.width,
+        height: siteConfig.openGraphImage.height,
+        alt: siteConfig.openGraphImage.alt,
       },
     ],
   },
@@ -75,14 +71,15 @@ export const metadata: Metadata = {
     title:
       "Kaibo Security | Formación en Seguridad Privada",
 
-    description:
-      "Cursos OS10 y capacitación profesional en seguridad privada para personas y empresas.",
+    description: siteConfig.description,
 
-    images: ["/og.png"],
+    images: [
+      siteConfig.openGraphImage.src,
+    ],
   },
 
   icons: {
-    icon: "/favicon.svg",
+    icon: "/public/images/branding/kaibo-logo.jpg",
   },
 };
 
