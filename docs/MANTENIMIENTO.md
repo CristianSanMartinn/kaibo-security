@@ -176,3 +176,12 @@ Los enlaces se editan en `src/config/social.ts`; el número de WhatsApp se obtie
 `ROTATION_MS` controla el intervalo entre redes. La rotación se pausa mientras el mouse está encima o se navega por teclado. Los tres puntos permiten elegir una red sin desactivar la rotación. Reducir movimiento elimina la transición visual, pero las redes siguen alternándose.
 
 
+
+## Instalaciones y video del cliente (30 de octubre de 2026)
+
+- La galería está dentro de `src/features/landing/components/About/About.tsx`, en el arreglo `facilities`.
+- Fotos originales del cliente: `public/images/facilities/`. Las miniaturas abren un diálogo que muestra la imagen completa.
+- Video del 29 de octubre: `public/videos/kaibo-presentacion.mp4`. Se conserva la imagen y el audio; el contenedor MP4 se preparó con faststart. Portada: `public/images/facilities/video-presentacion.jpg`.
+- El video mantiene su formato vertical, usa controles nativos y no se reproduce automáticamente. No se agregaron subtítulos porque aún no se dispone de una transcripción validada.
+- El video del 26 (recorrido de baños), los afiches y las fotos no seleccionadas no se incorporaron a la web. Los archivos de origen no se modificaron.
+- Comprobaciones: ESLint del componente y compilación de producción correctos; apertura/cierre de fotos y recuperación del foco; reproducción del video; ancho móvil de 390px sin desbordamiento horizontal.
