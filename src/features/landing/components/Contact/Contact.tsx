@@ -67,6 +67,7 @@ export default function Contact() {
         <div className={styles.layout}>
           <ContactForm
             courses={courses.map((course) => course.title)}
+            whatsapp={siteConfig.whatsapp}
           />
 
           <aside
