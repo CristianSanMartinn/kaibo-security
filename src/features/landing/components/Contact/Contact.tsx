@@ -106,10 +106,12 @@ export default function Contact() {
                 </span>
               </span>
             </a>
-            <div className={styles.social}>
-              <p>También estamos en redes</p>
-              <SocialLinks />
-            </div>
+            {/**
+              <div className={styles.social}>
+                <p>También estamos en redes</p>
+                <SocialLinks />
+              </div>
+            */}
           </aside>
         </div>
       </Container>
