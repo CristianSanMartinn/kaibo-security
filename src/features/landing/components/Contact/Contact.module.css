@@ -1,138 +1,362 @@
 .root {
-  padding-block: clamp(3.5rem, 7vw, 6rem);
-  background: var(--color-primary);
+  position: relative;
+  overflow: hidden;
+
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+
+  background:
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(244, 180, 26, 0.065),
+      transparent 32rem
+    ),
+    var(--color-primary);
 }
+
+.heading {
+  max-width: 50rem;
+}
+
+.trustRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.trustRow span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  color: var(--color-muted);
+
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.trustRow svg {
+  color: var(--color-accent);
+}
+
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1.5rem;
-  margin-top: 2.5rem;
+
   align-items: start;
+
+  gap: 2rem;
+
+  margin-top: clamp(1.8rem, 3vw, 2.7rem);
 }
-.side {
+
+/* ==========================
+   PANEL INFORMACIÓN
+   ========================== */
+
+.infoPanel {
+  min-width: 0;
+  overflow: hidden;
+
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius-md) + 0.2rem);
+
+  background: var(--color-secondary);
+
+  box-shadow:
+    0 1.5rem 4rem rgba(0, 0, 0, 0.12);
+}
+
+.infoHeader {
+  padding: 1.75rem;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.infoEyebrow {
+  display: block;
+
+  margin-bottom: 0.75rem;
+
+  color: var(--color-accent);
+
+  font-size: 0.73rem;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+}
+
+.infoHeader h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: clamp(1.3rem, 2vw, 1.55rem);
+  line-height: 1.2;
+}
+
+.infoHeader p {
+  max-width: 32rem;
+
+  margin: 0.75rem 0 0;
+
+  color: var(--color-muted);
+
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+/* ==========================
+   ITEMS
+   ========================== */
+
+.infoList {
+  padding-inline: 1.75rem;
+}
+
+.infoItem {
   display: grid;
+
+  grid-template-columns: auto minmax(0, 1fr);
+
   gap: 1rem;
+
+  padding-block: 1.55rem;
+}
+
+.icon {
+  display: grid;
+
+  width: 2.7rem;
+  height: 2.7rem;
+
+  place-items: center;
+
+  border: 1px solid rgba(244, 180, 26, 0.32);
+  border-radius: 0.7rem;
+
+  background: rgba(244, 180, 26, 0.07);
+
+  color: var(--color-accent);
+}
+
+.infoContent {
   min-width: 0;
 }
-/* Horario y correo comparten la misma superficie visual. */
-.card {
-  padding: 1.4rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-secondary);
-}
+
 .label {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
+  display: block;
+
+  margin-bottom: 0.4rem;
+
   color: var(--color-accent);
-  font-size: 0.95rem;
+
+  font-size: 0.82rem;
   font-weight: 650;
 }
-.label svg {
-  flex-shrink: 0;
-}
-.days {
-  margin: 1rem 0 0;
+
+.infoContent strong {
+  display: block;
+
   color: var(--color-text);
-  font-size: 1.15rem;
-  font-weight: 600;
+
+  font-size: 1.04rem;
+  line-height: 1.45;
 }
+
+.infoContent p {
+  margin: 0.45rem 0 0;
+
+  color: var(--color-muted);
+
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.divider {
+  height: 1px;
+
+  background: var(--color-border);
+}
+
+/* ==========================
+   HORARIO
+   ========================== */
+
 .hours {
   display: flex;
   flex-wrap: wrap;
+
   align-items: baseline;
-  gap: 0.6rem;
-  margin-top: 0.25rem;
-  color: var(--color-accent);
+
+  gap: 0.45rem;
+
+  margin-top: 0.35rem;
 }
+
 .hours time {
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
-  font-weight: 650;
+  color: var(--color-text);
+
+  font-size: 1.32rem;
+  font-weight: 700;
+
   font-variant-numeric: tabular-nums;
-  line-height: 1.2;
 }
-.hours > span {
-  color: var(--color-muted);
-  font-size: 1rem;
+
+.hours span {
+  color: var(--color-accent);
 }
-.note {
-  margin: 0.9rem 0 0;
-  color: var(--color-muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-.email {
+
+/* ==========================
+   LINKS
+   ========================== */
+
+.contactLink {
   display: inline-block;
+
   max-width: 100%;
-  margin-top: 0.9rem;
+
   color: var(--color-text);
-  font-size: 1.1rem;
-  font-weight: 600;
-  overflow-wrap: anywhere;
-  text-decoration: underline;
-  text-decoration-color: #f4b41a80;
-  text-underline-offset: 0.25em;
-}
-.email:hover {
-  color: var(--color-accent);
-}
-/* Toda la ubicación funciona como un único enlace a Maps. */
-.location {
-  display: grid;
-  gap: 1rem;
-  padding: 1.4rem;
-  border: 1px solid var(--color-accent);
-  border-radius: var(--radius-md);
-  background: var(--color-secondary);
-  color: var(--color-text);
-  transition: background-color 160ms ease;
-}
-.location:hover {
-  background: #f4b41a14;
-}
-.location:focus-visible,
-.email:focus-visible {
-  outline: 2px solid white;
-  outline-offset: 3px;
-}
-.location > svg {
-  color: var(--color-accent);
-}
-.locationText {
-  display: grid;
-  gap: 0.25rem;
-}
-.locationText strong {
-  font-size: 1.2rem;
-}
-.locationText span {
-  font-size: 1.05rem;
-  line-height: 1.5;
-}
-.locationCta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--color-accent);
-  font-size: 1rem;
+
+  font-size: 1.02rem;
   font-weight: 650;
+
+  overflow-wrap: anywhere;
+
+  text-decoration: none;
+
+  transition: color 160ms ease;
 }
-.social {
-  display: flex;
-  flex-wrap: wrap;
+
+.contactLink:hover {
+  color: var(--color-accent);
+}
+
+.inlineLink {
+  display: inline-flex;
+
   align-items: center;
-  gap: 1rem 1.5rem;
-  margin-top: 0.5rem;
+
+  gap: 0.35rem;
+
+  margin-top: 0.85rem;
+
+  color: var(--color-accent);
+
+  font-size: 0.9rem;
+  font-weight: 650;
+
+  text-decoration: none;
 }
-.social > p {
-  margin: 0;
+
+.inlineLink svg {
+  transition: transform 160ms ease;
+}
+
+.inlineLink:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* ==========================
+   WHATSAPP SECUNDARIO
+   ========================== */
+
+.whatsapp {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 1rem;
+
+  padding: 1.4rem 1.75rem;
+
+  border-top: 1px solid var(--color-border);
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.whatsapp strong {
+  display: block;
+
+  color: var(--color-text);
+
+  font-size: 0.92rem;
+}
+
+.whatsapp p {
+  margin: 0.25rem 0 0;
+
   color: var(--color-muted);
-  font-size: 0.95rem;
+
+  font-size: 0.83rem;
 }
+
+.whatsapp a {
+  display: inline-flex;
+
+  min-height: 2.75rem;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  padding-inline: 1rem;
+
+  border: 1px solid rgba(37, 211, 102, 0.45);
+  border-radius: 0.65rem;
+
+  background: rgba(37, 211, 102, 0.08);
+
+  color: #6ee7a0;
+
+  font-size: 0.88rem;
+  font-weight: 650;
+
+  text-decoration: none;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.whatsapp a:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(37, 211, 102, 0.75);
+
+  background: rgba(37, 211, 102, 0.14);
+}
+
+.contactLink:focus-visible,
+.inlineLink:focus-visible,
+.whatsapp a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (min-width: 34rem) {
+  .whatsapp {
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 @media (min-width: 64rem) {
   .layout {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    gap: 2.5rem;
+    grid-template-columns:
+      minmax(0, 1.35fr)
+      minmax(20rem, 0.85fr);
+
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .infoPanel {
+    position: sticky;
+    top: 7rem;
   }
 }
