@@ -45,19 +45,23 @@
 .contact {
   margin-top: 2rem;
 }
-.whatsapp {
+.formLink {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   min-height: 2.75rem;
   padding: 0.65rem 1.25rem;
   border-radius: var(--radius-md);
-  background: #128044;
-  color: #ffffff;
+  background: var(--color-accent);
+  color: var(--color-primary);
   font-size: 0.9rem;
   font-weight: 650;
 }
-.whatsapp:hover {
+.formLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+.formLink:hover {
   filter: brightness(1.08);
 }
 .contactList {
@@ -86,45 +90,127 @@
   font-size: 0.8rem;
 }
 
-/* ---------- Equipo: lista 2x2 con fotos pequeñas ---------- */
+/* ---------- Equipo: cuatro tarjetas alineadas en escritorio ---------- */
 .team {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 0 3rem;
+  gap: 1.25rem;
   margin: clamp(2.5rem, 5vw, 4rem) 0 0;
   padding: 0;
   list-style: none;
 }
-.team li {
+
+.team > li {
   display: flex;
-  align-items: flex-start;
-  gap: 1.1rem;
-  padding-block: 1.4rem;
-  border-top: 1px solid var(--color-border);
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-secondary);
+  box-shadow: 0 8px 24px #00000012;
 }
+
 .avatar {
   flex-shrink: 0;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid #d9b04f65;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
   background: var(--color-secondary);
 }
-.team h3 {
-  font-size: 1.05rem;
-  line-height: 1.3;
+
+.memberInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
 }
+
+.team h3 {
+  margin: 0;
+  min-height: 2.6em;
+  font-size: 1rem;
+  line-height: 1.3;
+  text-align: center;
+  text-wrap: balance;
+}
+
 .role {
-  margin-top: 0.15rem;
+  margin-top: 0.4rem;
   color: var(--color-accent);
   font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
 }
+
 .does {
-  margin-top: 0.4rem;
+  margin: 1.25rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
   color: var(--color-muted);
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+.areaLabel {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* El contacto queda al pie, incluso cuando una descripción ocupa más líneas. */
+.memberContact {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.memberContact a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  color: var(--color-text);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.memberContact a > span {
+  min-width: 0;
+}
+
+.memberContact svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.contactLabel {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+}
+
+.memberContact a:hover {
+  color: var(--color-accent);
+}
+
+.memberContact a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 3px;
 }
 
 @media (min-width: 40rem) {
@@ -138,8 +224,13 @@
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     gap: 4rem;
   }
-  /* La foto va a la izquierda en escritorio, aunque en el código esté después. */
+
+  /* La foto va a la izquierda en escritorio. */
   .photo {
     order: -1;
+  }
+
+  .team {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

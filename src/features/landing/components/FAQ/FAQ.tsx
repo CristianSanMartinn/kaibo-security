@@ -21,10 +21,11 @@ export default function FAQ() {
           </p>
         </SectionHeading>
         <div className={styles.items}>
-          {/* details/summary ofrece teclado y estado abierto/cerrado sin JavaScript. */}
+          {/* El mismo name agrupa las preguntas: abrir una cierra la anterior sin JavaScript. */}
           {frequentlyAskedQuestions.map((item) => (
             <details
               key={item.question}
+              name="kaibo-faq"
               className={styles.item}
             >
               <summary>

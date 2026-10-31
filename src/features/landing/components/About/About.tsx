@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { ArrowDownRight, Mail, Phone } from "lucide-react";
 import Container from "@/components/ui/Container/Container";
 import styles from "./About.module.css";
 
@@ -12,7 +12,6 @@ import styles from "./About.module.css";
 const contact = {
   email: "contacto@mifirmaseguridad.com",
   phone: "+56927650721",
-  whatsapp: "56927650721",
   hours: "Respondemos de lunes a viernes.", // ajusta el horario real
 };
 
@@ -33,29 +32,43 @@ const team = {
 type Member = {
   name?: string;
   role: string;
+  phone: string;
+  email: string;
   does: string;
   image: string;
 };
 
+// Completa name en las tres fichas pendientes. Cada contacto puede editarse por separado.
 const members: Member[] = [
   {
     name: "Marco Céspedes Cerda",
     role: "Representante legal",
+    phone: contact.phone,
+    email: contact.email,
     does: "Representa a la OTEC y está a cargo de la dirección general.",
     image: "/images/team/perfil-1.webp",
   },
   {
+    name: "", // Agrega aquí el nombre completo.
     role: "Coordinación académica",
+    phone: contact.phone,
+    email: contact.email,
     does: "Organiza los cursos, las fechas y a los relatores.",
     image: "/images/team/perfil-2.jfif",
   },
   {
+    name: "", // Agrega aquí el nombre completo.
     role: "Atención y admisiones",
+    phone: contact.phone,
+    email: contact.email,
     does: "Responde consultas y ayuda con las inscripciones.",
     image: "/images/team/perfil-3.jpg",
   },
   {
+    name: "", // Agrega aquí el nombre completo.
     role: "Administración",
+    phone: contact.phone,
+    email: contact.email,
     does: "Se encarga de la documentación, facturas y certificados.",
     image: "/images/team/perfil-4.jpg",
   },
@@ -79,16 +92,14 @@ export default function About() {
 
             <div className={styles.contact}>
               <a
-                className={styles.whatsapp}
-                href={"https://wa.me/" + contact.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
+                className={styles.formLink}
+                href="#contacto"
               >
-                <MessageCircle
+                <ArrowDownRight
                   size={18}
                   aria-hidden="true"
                 />
-                Escríbenos por WhatsApp
+                Ir al formulario de contacto
               </a>
               <ul className={styles.contactList}>
                 <li>
@@ -133,14 +144,44 @@ export default function About() {
               <Image
                 className={styles.avatar}
                 src={member.image}
-                alt={member.name ?? member.role}
+                alt={member.name || member.role}
                 width={160}
                 height={160}
               />
-              <div>
-                <h3>{member.name ?? member.role}</h3>
-                {member.name && <p className={styles.role}>{member.role}</p>}
-                <p className={styles.does}>{member.does}</p>
+              <div className={styles.memberInfo}>
+                <h3>{member.name || "Nombre por confirmar"}</h3>
+                <p className={styles.role}>{member.role}</p>
+                <p className={styles.does}>
+                  <span className={styles.areaLabel}>Qué hace en su área</span>
+                  {member.does}
+                </p>
+                {/* Contactos de empresa: se pueden pulsar para llamar o escribir. */}
+                <div className={styles.memberContact}>
+                  <a href={"tel:" + member.phone}>
+                    <Phone
+                      size={16}
+                      aria-hidden="true"
+                    />
+                    <span>
+                      <span className={styles.contactLabel}>
+                        Teléfono de empresa
+                      </span>
+                      {member.phone}
+                    </span>
+                  </a>
+                  <a href={"mailto:" + member.email}>
+                    <Mail
+                      size={16}
+                      aria-hidden="true"
+                    />
+                    <span>
+                      <span className={styles.contactLabel}>
+                        Correo electrónico
+                      </span>
+                      {member.email}
+                    </span>
+                  </a>
+                </div>
               </div>
             </li>
           ))}
