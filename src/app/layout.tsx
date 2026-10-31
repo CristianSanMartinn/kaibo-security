@@ -75,14 +75,7 @@ export const metadata: Metadata = {
     ],
   },
 
-  icons: {
-    icon: [
-      {
-        url: siteConfig.logo.src,
-        type: "image/jpeg",
-      },
-    ],
-  },
+  // Los iconos de la pestaña se generan desde app/favicon.ico y app/icon.png.
 };
 
 export default function RootLayout({
