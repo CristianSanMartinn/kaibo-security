@@ -76,7 +76,12 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/public/images/branding/kaibo-logo.jpg",
+    icon: [
+      {
+        url: siteConfig.logo.src,
+        type: "image/jpeg",
+      },
+    ],
   },
 };
 
