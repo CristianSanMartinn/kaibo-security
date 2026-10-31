@@ -1,25 +1,164 @@
+/* Identidad de Firma Seguridad: negro, blanco y dorado propio de la marca. */
 .root {
-  padding-block: clamp(2.75rem, 5vw, 4rem);
-  background: var(--color-secondary);
-  color: var(--color-text);
+  --firma-gold: #dfb647;
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  border-block: 1px solid #dfb64730;
+  background:
+    radial-gradient(ellipse at 12% 40%, #dfb6470a, transparent 55%), #0d0d0d;
+  color: #f5f5f3;
 }
+
 .inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+/* Se conserva la proporción completa del logo, también en pantallas pequeñas. */
+.logo {
+  width: 100%;
+  max-width: 32rem;
+  min-width: 0;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid #dfb64770;
+  border-radius: 1.25rem;
+  background: #070606;
+  box-shadow:
+    0 16px 48px #00000050,
+    0 0 32px #dfb64708;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.text {
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--firma-gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+
+.text h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.5vw, 3.1rem);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.text h2 span {
+  display: block;
+  margin-top: 0.2em;
+  color: var(--firma-gold);
+}
+
+.intro {
+  max-width: 54ch;
+  margin: 0;
+  color: #bebeb9;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.services {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.services li {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
+  color: #e0d5b5;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
-.inner > div {
-  max-width: 46rem;
+
+.services li:not(:last-child)::after {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--firma-gold);
+  content: "";
 }
-.inner p {
-  color: var(--color-accent);
-  margin-bottom: 1rem;
-  font-size: 0.6rem;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 100%;
+  min-height: 3.25rem;
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid var(--firma-gold);
+  border-radius: 3px;
+  background: var(--firma-gold);
+  color: #111111;
+  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
 }
-.inner h2 {
-  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+
+.button svg {
+  flex-shrink: 0;
+}
+
+.button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
+
+.destination {
+  margin-top: -0.65rem;
+  color: #aaa9a3;
+  font-size: 0.8rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    background: #f0ca64;
+    transform: translateY(-2px);
+  }
+}
+
+@media (min-width: 48rem) {
+  .inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+    transform: none;
+  }
 }
