@@ -102,12 +102,37 @@ export const courses: Course[] = [
     title: "Curso de CCTV",
     category: "VIDEOVIGILANCIA",
     description:
-      "Acércate al monitoreo y la operación de sistemas de videovigilancia.",
+      "Aprende a instalar, configurar y mantener sistemas de videovigilancia CCTV.",
     detail:
-      "Para quienes quieren conocer el trabajo en una sala de monitoreo. Pregunta por el temario, las fechas y las condiciones vigentes.",
+      "Formación teórica y práctica para instalar, configurar y mantener sistemas de videovigilancia CCTV desde cero, aplicando buenas prácticas y estándares de seguridad.",
     image: "/images/courses/cctv-provisional.webp",
     imageAlt: "Sala de monitoreo con pantallas de videovigilancia.",
-    // PENDIENTE con el cliente: duración, modalidad, fechas y valor.
+    // Contenidos del afiche CCTV entregado por el cliente.
+    // PENDIENTE: duración, modalidad, fechas, valor, requisitos y certificado.
+    sections: [
+      {
+        title: "¿Qué aprenderás?",
+        items: [
+          "Fundamentos de sistemas CCTV y su funcionamiento.",
+          "Instalación y configuración de cámaras y DVR/NVR.",
+          "Mantenimiento preventivo y correctivo.",
+          "Buenas prácticas y seguridad en el equipo.",
+        ],
+      },
+      {
+        title: "¿A quién está dirigido?",
+        paragraphs: [
+          "El curso está orientado a personas de todos los niveles que buscan aprender sobre sistemas de videovigilancia, con un enfoque práctico y teórico desde cero.",
+        ],
+      },
+      {
+        title: "Información e inscripción",
+        paragraphs: [
+          "Consulta con nuestro equipo el valor, la duración, la modalidad, las próximas fechas y los requisitos de ingreso.",
+          "Antes de inscribirte, confirma qué certificado se entrega y cuáles son las condiciones para obtenerlo.",
+        ],
+      },
+    ],
   },
   {
     id: "baston-esposas",
