@@ -36,25 +36,27 @@ type Member = {
   email: string;
   does: string;
   image: string;
+  closeUp?: boolean;
 };
 
-// Completa name en las tres fichas pendientes. Cada contacto puede editarse por separado.
+// Completa name en las dos fichas pendientes. Cada contacto puede editarse por separado.
 const members: Member[] = [
   {
     name: "Marco Céspedes Cerda",
     role: "Representante legal",
-    phone: contact.phone,
-    email: contact.email,
+    phone: "+56927650721",
+    email: "kaibosecurity@gmail.com",
     does: "Representa a la OTEC y está a cargo de la dirección general.",
-    image: "/images/team/perfil-1.webp",
+    image: "/images/team/marco-cespedes-cerda.png",
   },
   {
-    name: "", // Agrega aquí el nombre completo.
-    role: "Coordinación académica",
-    phone: contact.phone,
-    email: contact.email,
-    does: "Organiza los cursos, las fechas y a los relatores.",
-    image: "/images/team/perfil-2.jfif",
+    name: "Camila Andrea Céspedes Cerda",
+    role: "Administrativa de atención por WhatsApp y correo electrónico",
+    phone: "+56961146207",
+    email: "cespedesmimi101522@gmail.com",
+    does: "Atiende las consultas recibidas por WhatsApp y correo electrónico.",
+    image: "/images/team/camila-cespedes-cerda.png",
+    closeUp: true, // Acerca el rostro dentro del círculo sin editar la foto.
   },
   {
     name: "", // Agrega aquí el nombre completo.
@@ -141,13 +143,15 @@ export default function About() {
         <ul className={styles.team}>
           {members.map((member) => (
             <li key={member.role}>
-              <Image
-                className={styles.avatar}
-                src={member.image}
-                alt={member.name || member.role}
-                width={160}
-                height={160}
-              />
+              <div className={styles.avatar}>
+                <Image
+                  className={member.closeUp ? styles.avatarCloseUp : undefined}
+                  src={member.image}
+                  alt={member.name || member.role}
+                  width={160}
+                  height={160}
+                />
+              </div>
               <div className={styles.memberInfo}>
                 <h3>{member.name || "Nombre por confirmar"}</h3>
                 <p className={styles.role}>{member.role}</p>

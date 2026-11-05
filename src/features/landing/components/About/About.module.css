@@ -113,15 +113,31 @@
 }
 
 .avatar {
+  position: relative;
+  overflow: hidden;
   flex-shrink: 0;
   width: 5rem;
   height: 5rem;
   margin-bottom: 1.25rem;
   border: 2px solid #d9b04f65;
   border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
-  background: var(--color-secondary);
+}
+
+/* Camila: el rostro está en el sector superior izquierdo de la fotografía. */
+.avatar img.avatarCloseUp {
+  width: 140%;
+  height: 140%;
+  max-width: none;
+  object-position: left top;
 }
 
 .memberInfo {

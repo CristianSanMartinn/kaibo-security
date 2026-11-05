@@ -17,7 +17,7 @@ export default function FAQ() {
           id="faq-title"
         >
           <p>
-            Información que conviene revisar antes de elegir una capacitación.
+            ñInformación que conviene revisar antes de elegir una capacitación.
           </p>
         </SectionHeading>
         <div className={styles.items}>
