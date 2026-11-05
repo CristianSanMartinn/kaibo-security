@@ -23,10 +23,9 @@ const intro = {
   ],
 };
 
-const team = {
-  photo: "/images/team/equipo-ilustrativo.webp",
-  alt: "El equipo de Kaibo Security",
-  caption: "Parte del equipo de Kaibo Security",
+const branding = {
+  image: "/images/branding/kaibo-logo.jpg",
+  alt: "Logo de Kaibo Security",
 };
 
 type Member = {
@@ -36,10 +35,9 @@ type Member = {
   email: string;
   does: string;
   image: string;
-  closeUp?: boolean;
 };
 
-// Completa name en las dos fichas pendientes. Cada contacto puede editarse por separado.
+// Completa name en la ficha pendiente. Cada contacto puede editarse por separado.
 const members: Member[] = [
   {
     name: "Marco Céspedes Cerda",
@@ -51,20 +49,19 @@ const members: Member[] = [
   },
   {
     name: "Camila Andrea Céspedes Cerda",
-    role: "Administrativa de atención por WhatsApp y correo electrónico",
-    phone: "+56961146207",
-    email: "cespedesmimi101522@gmail.com",
-    does: "Atiende las consultas recibidas por WhatsApp y correo electrónico.",
-    image: "/images/team/camila-cespedes-cerda.png",
-    closeUp: true, // Acerca el rostro dentro del círculo sin editar la foto.
+    role: "Coordinadora general",
+    phone: "+56927650721",
+    email: "kaibosecurity@gmail.com",
+    does: "Está a cargo de la coordinación general de Kaibo Security.",
+    image: "/images/team/camila-coordinadora-general.png",
   },
   {
-    name: "", // Agrega aquí el nombre completo.
-    role: "Atención y admisiones",
-    phone: contact.phone,
-    email: contact.email,
-    does: "Responde consultas y ayuda con las inscripciones.",
-    image: "/images/team/perfil-3.jpg",
+    name: "Carolyn Acuña Melivilu",
+    role: "Gerente general",
+    phone: "+56942712966",
+    email: "kaibosecurity@gmail.com",
+    does: "Está a cargo de la gerencia general de Kaibo Security.",
+    image: "/images/team/carolyn-acuna-melivilu.png",
   },
   {
     name: "", // Agrega aquí el nombre completo.
@@ -130,13 +127,12 @@ export default function About() {
           <figure className={styles.photo}>
             <div className={styles.photoFrame}>
               <Image
-                src={team.photo}
-                alt={team.alt}
+                src={branding.image}
+                alt={branding.alt}
                 fill
                 sizes="(min-width: 64rem) 55vw, 100vw"
               />
             </div>
-            <figcaption>{team.caption}</figcaption>
           </figure>
         </div>
 
@@ -145,7 +141,6 @@ export default function About() {
             <li key={member.role}>
               <div className={styles.avatar}>
                 <Image
-                  className={member.closeUp ? styles.avatarCloseUp : undefined}
                   src={member.image}
                   alt={member.name || member.role}
                   width={160}

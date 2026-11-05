@@ -3,7 +3,7 @@
   background: var(--color-surface);
 }
 
-/* ---------- Parte superior: texto + foto ---------- */
+/* ---------- Parte superior: texto y logo corporativo ---------- */
 .top {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -33,12 +33,7 @@
   background: var(--color-secondary);
 }
 .photoFrame img {
-  object-fit: cover;
-}
-.photo figcaption {
-  margin-top: 0.6rem;
-  color: var(--color-muted);
-  font-size: 0.8rem;
+  object-fit: contain;
 }
 
 /* ---------- Contacto directo ---------- */
@@ -130,14 +125,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-}
-
-/* Camila: el rostro está en el sector superior izquierdo de la fotografía. */
-.avatar img.avatarCloseUp {
-  width: 140%;
-  height: 140%;
-  max-width: none;
-  object-position: left top;
 }
 
 .memberInfo {
