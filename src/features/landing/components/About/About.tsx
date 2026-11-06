@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowDownRight, Mail, Phone } from "lucide-react";
 import Container from "@/components/ui/Container/Container";
+import { siteConfig } from "@/config/site";
 import styles from "./About.module.css";
 
 /*
@@ -11,7 +12,7 @@ import styles from "./About.module.css";
 */
 const contact = {
   email: "contacto@mifirmaseguridad.com",
-  phone: "+56927650721",
+  phone: "+" + siteConfig.whatsapp,
   hours: "Respondemos de lunes a viernes.", // ajusta el horario real
 };
 
@@ -48,14 +49,6 @@ const members: Member[] = [
     image: "/images/team/marco-cespedes-cerda.png",
   },
   {
-    name: "Camila Andrea Céspedes Cerda",
-    role: "Coordinadora general",
-    phone: "+56927650721",
-    email: "kaibosecurity@gmail.com",
-    does: "Está a cargo de la coordinación general de Kaibo Security.",
-    image: "/images/team/camila-coordinadora-general.png",
-  },
-  {
     name: "Carolyn Acuña Melivilu",
     role: "Gerente general",
     phone: "+56942712966",
@@ -64,6 +57,16 @@ const members: Member[] = [
     image: "/images/team/carolyn-acuna-melivilu.png",
   },
   {
+    name: "Camila Andrea Céspedes Cerda",
+    role: "Coordinadora general",
+    phone: contact.phone,
+    email: "kaibosecurity@gmail.com",
+    does: "Está a cargo de la coordinación general de Kaibo Security.",
+    image: "/images/team/camila-coordinadora-general.png",
+  },
+  // Cuando lleguen los datos de la cuarta integrante, completa y descomenta esta ficha.
+  /*
+  {
     name: "", // Agrega aquí el nombre completo.
     role: "Administración",
     phone: contact.phone,
@@ -71,6 +74,7 @@ const members: Member[] = [
     does: "Se encarga de la documentación, facturas y certificados.",
     image: "/images/team/perfil-4.jpg",
   },
+  */
 ];
 
 export default function About() {
