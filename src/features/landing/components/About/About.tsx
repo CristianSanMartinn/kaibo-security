@@ -38,7 +38,7 @@ type Member = {
   image: string;
 };
 
-// Completa name en la ficha pendiente. Cada contacto puede editarse por separado.
+// Datos del equipo en orden de presentación. Cada contacto puede editarse por separado.
 const members: Member[] = [
   {
     name: "Marco Céspedes Cerda",
@@ -64,17 +64,14 @@ const members: Member[] = [
     does: "Está a cargo de la coordinación general de Kaibo Security.",
     image: "/images/team/camila-coordinadora-general.png",
   },
-  // Cuando lleguen los datos de la cuarta integrante, completa y descomenta esta ficha.
-  /*
   {
-    name: "", // Agrega aquí el nombre completo.
-    role: "Administración",
-    phone: contact.phone,
-    email: contact.email,
-    does: "Se encarga de la documentación, facturas y certificados.",
-    image: "/images/team/perfil-4.jpg",
+    name: "José Antonio Díaz Espinoza",
+    role: "Encargado SENCE",
+    phone: "+56979363304",
+    email: "Josecotediaz@gmail.com",
+    does: "Asistente social, diplomado en Gestión Estratégica en Recursos Humanos. Encargado de las gestiones relacionadas con SENCE en Kaibo Security.",
+    image: "/images/team/jose-antonio-diaz-espinoza.png",
   },
-  */
 ];
 
 export default function About() {
