@@ -42,7 +42,7 @@ export default function Navbar() {
           {navigation.map((item) => (
             <Link
               key={item.href}
-              href={"/" + item.href}
+              href={item.href}
             >
               {item.label}
             </Link>

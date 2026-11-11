@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
+import type { ReactNode } from "react";
+import { ArrowUpRight, BadgeCheck } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import Container from "@/components/ui/Container/Container";
 import Button from "@/components/ui/Button/Button";
@@ -11,8 +12,15 @@ type Props = {
   index: number;
   count: number;
   active: boolean;
+  children?: ReactNode;
 };
-export default function HeroSlide({ slide, index, count, active }: Props) {
+export default function HeroSlide({
+  slide,
+  index,
+  count,
+  active,
+  children,
+}: Props) {
   return (
     <div
       className={styles.root}
@@ -46,6 +54,19 @@ export default function HeroSlide({ slide, index, count, active }: Props) {
               className={styles.contactAction}
               variant="outline"
             />
+          </div>
+          {children}
+          {/* Certificación confirmada por el cliente; icono ilustrativo. */}
+          <div className={styles.certification}>
+            <BadgeCheck
+              size={28}
+              strokeWidth={1.5}
+              aria-hidden="true"
+            />
+            <p>
+              <span>Certificado por</span>
+              <strong>SENCE</strong>
+            </p>
           </div>
           {!siteConfig.whatsapp && (
             <p className={styles.contactNote}>

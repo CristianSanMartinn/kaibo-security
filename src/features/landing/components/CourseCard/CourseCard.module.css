@@ -6,10 +6,12 @@
   min-width: 0;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: var(--color-primary);
+  background: var(--color-secondary);
+  box-shadow: 0 10px 28px #00000018;
   transition:
     transform 150ms ease,
-    border-color 150ms ease;
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 }
 .image {
   position: relative;
@@ -27,22 +29,22 @@
   flex: 1;
   flex-direction: column;
   min-width: 0;
-  padding: 1.25rem;
+  padding: 1.5rem 1.25rem;
 }
 .category {
   margin-bottom: 0.75rem;
   color: var(--color-accent);
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: lowercase;
-}
-.category::first-letter {
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .body h3 {
-  min-height: 2.7em;
+  min-height: 4.05em;
   font-size: 1.15rem;
   line-height: 1.35;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 .description {
   display: -webkit-box;
@@ -51,14 +53,16 @@
   overflow: hidden;
   margin-top: 0.75rem;
   color: var(--color-muted);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.925rem;
+  line-height: 1.7;
 }
 .facts {
   display: grid;
   gap: 0.5rem;
-  margin-top: 1rem;
-  color: var(--color-muted);
+  margin-top: 1.25rem;
+  padding-block: 0.85rem;
+  border-block: 1px solid var(--color-border);
+  color: var(--color-text);
   font-size: 0.85rem;
   line-height: 1.6;
 }
@@ -70,6 +74,7 @@
 .facts svg {
   flex-shrink: 0;
   margin-top: 0.2rem;
+  color: var(--color-accent);
 }
 .bottom {
   display: grid;
@@ -82,7 +87,8 @@
   align-items: baseline;
   gap: 0.5rem;
   color: var(--color-text);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
   font-weight: 650;
 }
 .price small {
@@ -95,26 +101,36 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  width: 100%;
   min-height: 2.75rem;
+  padding: 0.75rem 0 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
   border-top: 1px solid var(--color-border);
   color: var(--color-accent);
   font-size: 0.9rem;
   font-weight: 600;
 }
-.trigger {
+/* La extensión pertenece al botón real y queda por encima del contenido. */
+.action::after {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+  z-index: 2;
   border-radius: var(--radius-md);
-  background: transparent;
-  cursor: pointer;
+  content: "";
 }
-.trigger:focus-visible {
+
+.action:focus-visible {
+  outline: none;
+}
+
+.action:focus-visible::after {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
 }
+
 .root:focus-within {
   border-color: var(--color-accent);
 }
@@ -122,10 +138,15 @@
   .root:hover {
     transform: translateY(-4px);
     border-color: var(--color-accent);
+    box-shadow: 0 16px 36px #00000030;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .root {
     transition: none;
+  }
+
+  .root:hover {
+    transform: none;
   }
 }

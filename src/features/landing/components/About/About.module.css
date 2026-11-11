@@ -1,239 +1,64 @@
+/* Logo y presentación: una columna en móvil y dos en escritorio. */
 .root {
-  padding-block: clamp(3.5rem, 7vw, 6rem);
+  padding-block: clamp(3rem, 6vw, 5rem);
   background: var(--color-surface);
 }
 
-/* ---------- Parte superior: texto y logo corporativo ---------- */
-.top {
+.layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: center;
 }
-.text h2 {
-  font-size: clamp(1.8rem, 3.6vw, 2.4rem);
-  line-height: 1.2;
+
+.brand {
+  display: flex;
+  justify-content: center;
 }
-.text > p {
-  max-width: 32rem;
+
+.logo {
+  width: 10rem;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.copy {
+  min-width: 0;
+  max-width: 42rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+}
+
+.copy h2 {
+  font-size: clamp(1.8rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.intro {
   margin-top: 1rem;
   color: var(--color-muted);
   font-size: 1rem;
   line-height: 1.75;
 }
-.photo {
-  margin: 0;
-  min-width: 0;
-}
-.photoFrame {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  background: var(--color-secondary);
-}
-.photoFrame img {
-  object-fit: contain;
-}
 
-/* ---------- Contacto directo ---------- */
-.contact {
-  margin-top: 2rem;
-}
-.formLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  min-height: 2.75rem;
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-md);
-  background: var(--color-accent);
-  color: var(--color-primary);
-  font-size: 0.9rem;
-  font-weight: 650;
-}
-.formLink:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
-}
-.formLink:hover {
-  filter: brightness(1.08);
-}
-.contactList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.5rem;
-  margin: 1rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-.contactList a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 2.75rem;
-  color: var(--color-text);
-  font-size: 0.9rem;
-  overflow-wrap: anywhere;
-}
-.contactList svg {
-  flex-shrink: 0;
-  color: var(--color-accent);
-}
-.hours {
-  color: var(--color-muted);
-  font-size: 0.8rem;
-}
-
-/* ---------- Equipo: cuatro tarjetas alineadas en escritorio ---------- */
-.team {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1.25rem;
-  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.team > li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 0;
-  padding: 1.5rem 1.25rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-secondary);
-  box-shadow: 0 8px 24px #00000012;
-}
-
-.avatar {
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-  width: 5rem;
-  height: 5rem;
-  margin-bottom: 1.25rem;
-  border: 2px solid #d9b04f65;
-  border-radius: 50%;
-  background: var(--color-secondary);
-}
-
-.avatar img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.memberInfo {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  width: 100%;
-  min-width: 0;
-}
-
-.team h3 {
-  margin: 0;
-  min-height: 2.6em;
-  font-size: 1rem;
-  line-height: 1.3;
-  text-align: center;
-  text-wrap: balance;
-}
-
-.role {
-  margin-top: 0.4rem;
-  color: var(--color-accent);
-  font-size: 0.85rem;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.does {
-  margin: 1.25rem 0;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-muted);
-  font-size: 0.875rem;
-  line-height: 1.7;
-}
-
-.areaLabel {
-  display: block;
-  margin-bottom: 0.4rem;
-  color: var(--color-text);
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-/* El contacto queda al pie, incluso cuando una descripción ocupa más líneas. */
-.memberContact {
-  display: grid;
-  gap: 0.65rem;
-  margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
-}
-
-.memberContact a {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  min-height: 2.75rem;
-  color: var(--color-text);
-  font-size: 0.8rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-  text-decoration: none;
-}
-
-.memberContact a > span {
-  min-width: 0;
-}
-
-.memberContact svg {
-  flex-shrink: 0;
-  color: var(--color-accent);
-}
-
-.contactLabel {
-  display: block;
-  margin-bottom: 0.15rem;
-  color: var(--color-muted);
-  font-size: 0.7rem;
-}
-
-.memberContact a:hover {
-  color: var(--color-accent);
-}
-
-.memberContact a:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
-  border-radius: 3px;
+.action {
+  margin-top: 1.5rem;
 }
 
 @media (min-width: 40rem) {
-  .team {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 64rem) {
-  .top {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 4rem;
+  .layout {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
+    gap: clamp(2rem, 5vw, 4rem);
   }
 
-  /* La foto va a la izquierda en escritorio. */
-  .photo {
-    order: -1;
-  }
-
-  .team {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .logo {
+    width: 100%;
+    max-width: 15rem;
   }
 }

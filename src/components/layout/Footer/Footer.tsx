@@ -33,6 +33,12 @@ export default function Footer() {
             )}
             <p className={styles.companyName}>Kaibo Security</p>
             <p className={styles.description}>{siteConfig.description}</p>
+            <Link
+              href="/#equipo"
+              className={styles.contactLink}
+            >
+              Conoce a nuestro equipo
+            </Link>
           </div>
           <nav
             className={styles.column}

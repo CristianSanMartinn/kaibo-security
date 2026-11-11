@@ -1,4 +1,4 @@
-// HERO: conserva una portada fija. heroMedia.video permite activar el video cuando exista el archivo.
+// HERO: cada texto y sus acciones acompañan a la fotografía del mismo orden.
 import type { HeroSlideData } from "../types/hero.types";
 
 // Textos propuestos pendientes de aprobación.
@@ -7,19 +7,19 @@ export const heroSlides: HeroSlideData[] = [
     id: "presentacion",
     label: "Kaibo Security",
     eyebrow: "FORMACIÓN EN SEGURIDAD PRIVADA",
-    title: "La preparación marca",
-    accent: "la diferencia.",
+    title: "Fórmate en",
+    accent: "seguridad privada.",
     description:
-      "Formación para personas que buscan desarrollar sus conocimientos en seguridad privada. Conoce Kaibo Security y encuentra tu próximo paso.",
-    action: { label: "Sobre nosotros", href: "#nosotros" },
+      "Conoce nuestros cursos de Guardia de Seguridad, Conserje, CCTV y Bastón y Esposas. Consulta el programa y recibe orientación para inscribirte.",
+    action: { label: "Ver cursos", href: "#cursos" },
     contactLabel: "Consultar por WhatsApp",
   },
   {
     id: "capacitaciones",
     label: "Capacitaciones",
-    eyebrow: "CONOCIMIENTO PARA TU DESARROLLO",
-    title: "Tu siguiente paso",
-    accent: "empieza aquí.",
+    eyebrow: "NUESTROS CURSOS",
+    title: "Conoce nuestros",
+    accent: "cursos de seguridad.",
     description:
       "Explora nuestra propuesta de formación en seguridad privada. Consulta los contenidos y encuentra la capacitación que se ajuste a tus objetivos.",
     action: { label: "Ver cursos", href: "#cursos" },
@@ -28,19 +28,32 @@ export const heroSlides: HeroSlideData[] = [
   {
     id: "organizaciones",
     label: "Empresas",
-    eyebrow: "FORMACIÓN PARA ORGANIZACIONES",
-    title: "La preparación también",
-    accent: "se construye en equipo.",
+    eyebrow: "PARA EMPRESAS",
+    title: "Capacitación para",
+    accent: "tu organización.",
     description:
       "Conversemos sobre las necesidades de formación de tu organización y revisemos las alternativas de capacitación disponibles.",
-    action: { label: "Ver capacitación para empresas", href: "#empresas" },
+    action: { label: "Para mi empresa", href: "#empresas" },
     contactLabel: "Contactar asesor",
   },
 ];
 
-// Fondo único: cambiar video a una ruta local MP4/WebM cuando se entregue.
-// La imagen generada es provisional y también servirá como poster del video.
-export const heroMedia: { image: string; video: string | null } = {
-  image: "/images/hero/kaibo-security-hero-provisional.webp",
-  video: null,
+// Usar las fotos originales para evitar una conversión con pérdida antes de Next Image.
+// objectPosition permite ajustar el encuadre por foto.
+export const heroMedia = {
+  duration: 6000,
+  images: [
+    {
+      src: "/images/hero/hero-supermercado.png",
+      objectPosition: "center 40%",
+    },
+    {
+      src: "/images/hero/hero-guardias-metro-santiago-v3.png",
+      objectPosition: "70% top",
+    },
+    {
+      src: "/images/hero/hero-3-original.jpg",
+      objectPosition: "center top",
+    },
+  ],
 };

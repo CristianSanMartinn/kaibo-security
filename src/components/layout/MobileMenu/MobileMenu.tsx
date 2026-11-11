@@ -41,7 +41,9 @@ export default function MobileMenu() {
   function navigate(href: string) {
     setOpen(false);
     requestAnimationFrame(() =>
-      document.getElementById(href.slice(1))?.focus({ preventScroll: true }),
+      document
+        .getElementById(href.split("#")[1] ?? "")
+        ?.focus({ preventScroll: true }),
     );
   }
 
@@ -77,7 +79,7 @@ export default function MobileMenu() {
         {navigation.map((item) => (
           <Link
             key={item.href}
-            href={"/" + item.href}
+            href={item.href}
             onClick={() => navigate(item.href)}
           >
             {item.label}

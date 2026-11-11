@@ -10,7 +10,7 @@
       rgba(244, 180, 26, 0.065),
       transparent 32rem
     ),
-    var(--color-primary);
+    var(--color-secondary);
 }
 
 .heading {
@@ -61,14 +61,13 @@
   border: 1px solid var(--color-border);
   border-radius: calc(var(--radius-md) + 0.2rem);
 
-  background: var(--color-secondary);
+  background: var(--color-primary);
 
-  box-shadow:
-    0 1.5rem 4rem rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.12);
 }
 
 .infoHeader {
-  padding: 1.75rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
 
   border-bottom: 1px solid var(--color-border);
 }
@@ -111,7 +110,7 @@
    ========================== */
 
 .infoList {
-  padding-inline: 1.75rem;
+  padding-inline: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 .infoItem {
@@ -195,9 +194,9 @@
 }
 
 .hours time {
-  color: var(--color-text);
+  color: var(--color-accent);
 
-  font-size: 1.32rem;
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
   font-weight: 700;
 
   font-variant-numeric: tabular-nums;
@@ -349,7 +348,7 @@
 @media (min-width: 64rem) {
   .layout {
     grid-template-columns:
-      minmax(0, 1.35fr)
+      minmax(0, 1.15fr)
       minmax(20rem, 0.85fr);
 
     gap: clamp(2rem, 4vw, 3.5rem);

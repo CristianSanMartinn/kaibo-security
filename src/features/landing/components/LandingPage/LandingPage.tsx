@@ -1,6 +1,7 @@
 import Container from "@/components/ui/Container/Container";
 import Hero from "../Hero/Hero";
 import About from "../About/About";
+import Team from "../Team/Team";
 import Benefits from "../Benefits/Benefits";
 import Courses from "../Courses/Courses";
 import Companies from "../Companies/Companies";
@@ -24,6 +25,7 @@ export default function LandingPage() {
       {/* ORDEN DE LA PÁGINA: cambia este orden para reorganizar las secciones. */}
       <Hero />
       <About />
+      <Team />
       <Benefits />
       <Courses />
       <Companies />

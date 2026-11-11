@@ -57,23 +57,23 @@ export default function CourseCard({ course, onSelect }: Props) {
               : "Consultar valor"}
             {course.price !== undefined && <small>CLP</small>}
           </p>
-          <span
+          {/* El botón visible también extiende su área de pulsación a toda la tarjeta. */}
+          <button
+            type="button"
             className={styles.action}
-            aria-hidden="true"
+            aria-label={"Ver detalle de " + course.title}
+            aria-haspopup="dialog"
+            aria-controls="course-dialog"
+            onClick={(event) => onSelect(course, event.currentTarget)}
           >
-            Ver detalle <ArrowRight size={18} />
-          </span>
+            Ver detalle
+            <ArrowRight
+              size={18}
+              aria-hidden="true"
+            />
+          </button>
         </div>
       </div>
-      {/* Un único botón cubre la tarjeta completa y funciona también con teclado. */}
-      <button
-        type="button"
-        className={styles.trigger}
-        aria-label={"Ver detalle de " + course.title}
-        aria-haspopup="dialog"
-        aria-controls="course-dialog"
-        onClick={(event) => onSelect(course, event.currentTarget)}
-      />
     </article>
   );
 }

@@ -1,6 +1,6 @@
 .root {
   padding-block: clamp(3.5rem, 7vw, 6rem);
-  background: var(--color-secondary);
+  background: var(--color-primary);
 }
 .grid {
   display: grid;

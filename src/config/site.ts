@@ -10,7 +10,9 @@ export const officeHours = {
   closes: "16:00",
 } as const;
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+  "https://kaibosecurity.cl";
 
 export const siteConfig = {
   // =========================
@@ -34,8 +36,7 @@ export const siteConfig = {
 
   language: "es-CL",
 
-  indexable:
-    process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true",
+  indexable: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true",
 
   // =========================
   // BRANDING
@@ -69,26 +70,19 @@ export const siteConfig = {
   // HORARIO
   // =========================
 
-  hours:
-    `${officeHours.days}: ${officeHours.opens} a ${officeHours.closes}`,
+  hours: `${officeHours.days}: ${officeHours.opens} a ${officeHours.closes}`,
 } as const;
 
 /**
  * Genera una URL de WhatsApp únicamente si el número configurado
  * tiene un formato válido.
  */
-export function getWhatsAppUrl(
-  message: string,
-): string | null {
-  const number =
-    siteConfig.whatsapp.replace(/\D/g, "");
+export function getWhatsAppUrl(message: string): string | null {
+  const number = siteConfig.whatsapp.replace(/\D/g, "");
 
   if (!/^[1-9]\d{7,14}$/.test(number)) {
     return null;
   }
 
-  return (
-    `https://wa.me/${number}?text=` +
-    encodeURIComponent(message)
-  );
+  return `https://wa.me/${number}?text=` + encodeURIComponent(message);
 }

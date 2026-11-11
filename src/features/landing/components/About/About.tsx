@@ -1,79 +1,11 @@
 import Image from "next/image";
-import { ArrowDownRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container/Container";
+import Button from "@/components/ui/Button/Button";
 import { siteConfig } from "@/config/site";
 import styles from "./About.module.css";
 
-/*
-  EDITA AQUÍ con tus propias palabras. Todo lo que se ve en la sección sale de
-  este bloque, así que no necesitas tocar el JSX.
-  Fotos: public/images/team/. Cuando tengas fotos reales, cambia las rutas
-  y el texto alternativo.
-*/
-const contact = {
-  email: "contacto@mifirmaseguridad.com",
-  phone: "+" + siteConfig.whatsapp,
-  hours: "Respondemos de lunes a viernes.", // ajusta el horario real
-};
-
-const intro = {
-  title: "Somos Kaibo Security",
-  paragraphs: [
-    "Somos una OTEC que organiza capacitaciones en seguridad privada para personas y empresas.",
-    "Cuando nos escribes, te responde alguien del equipo. Te contamos qué curso te conviene, cuándo parte y qué necesitas para inscribirte.",
-  ],
-};
-
-const branding = {
-  image: "/images/branding/kaibo-logo.jpg",
-  alt: "Logo de Kaibo Security",
-};
-
-type Member = {
-  name?: string;
-  role: string;
-  phone: string;
-  email: string;
-  does: string;
-  image: string;
-};
-
-// Datos del equipo en orden de presentación. Cada contacto puede editarse por separado.
-const members: Member[] = [
-  {
-    name: "Marco Céspedes Cerda",
-    role: "Representante legal",
-    phone: "+56927650721",
-    email: "kaibosecurity@gmail.com",
-    does: "Representa a la OTEC y está a cargo de la dirección general.",
-    image: "/images/team/marco-cespedes-cerda.png",
-  },
-  {
-    name: "Carolyn Acuña Melivilu",
-    role: "Gerente general",
-    phone: "+56942712966",
-    email: "kaibosecurity@gmail.com",
-    does: "Está a cargo de la gerencia general de Kaibo Security.",
-    image: "/images/team/carolyn-acuna-melivilu.png",
-  },
-  {
-    name: "Camila Andrea Céspedes Cerda",
-    role: "Coordinadora general",
-    phone: contact.phone,
-    email: "kaibosecurity@gmail.com",
-    does: "Está a cargo de la coordinación general de Kaibo Security.",
-    image: "/images/team/camila-coordinadora-general.png",
-  },
-  {
-    name: "José Antonio Díaz Espinoza",
-    role: "Encargado SENCE",
-    phone: "+56979363304",
-    email: "Josecotediaz@gmail.com",
-    does: "Asistente social, diplomado en Gestión Estratégica en Recursos Humanos. Encargado de las gestiones relacionadas con SENCE en Kaibo Security.",
-    image: "/images/team/jose-antonio-diaz-espinoza.png",
-  },
-];
-
+// Presentación de la empresa. Los integrantes se editan en TeamShowcase.
 export default function About() {
   return (
     <section
@@ -83,109 +15,42 @@ export default function About() {
       className={styles.root}
     >
       <Container>
-        <div className={styles.top}>
-          <div className={styles.text}>
-            <h2 id="about-title">{intro.title}</h2>
-            {intro.paragraphs.map((text) => (
-              <p key={text}>{text}</p>
-            ))}
-
-            <div className={styles.contact}>
-              <a
-                className={styles.formLink}
-                href="#contacto"
-              >
-                <ArrowDownRight
-                  size={18}
-                  aria-hidden="true"
-                />
-                Ir al formulario de contacto
-              </a>
-              <ul className={styles.contactList}>
-                <li>
-                  <a href={"mailto:" + contact.email}>
-                    <Mail
-                      size={16}
-                      aria-hidden="true"
-                    />
-                    {contact.email}
-                  </a>
-                </li>
-                <li>
-                  <a href={"tel:" + contact.phone}>
-                    <Phone
-                      size={16}
-                      aria-hidden="true"
-                    />
-                    {contact.phone}
-                  </a>
-                </li>
-              </ul>
-              <p className={styles.hours}>{contact.hours}</p>
-            </div>
+        <div className={styles.layout}>
+          <div className={styles.brand}>
+            <Image
+              src={siteConfig.logo.src}
+              alt={siteConfig.logo.alt}
+              width={siteConfig.logo.width}
+              height={siteConfig.logo.height}
+              sizes="(min-width: 40rem) 240px, 160px"
+              className={styles.logo}
+            />
           </div>
-
-          <figure className={styles.photo}>
-            <div className={styles.photoFrame}>
-              <Image
-                src={branding.image}
-                alt={branding.alt}
-                fill
-                sizes="(min-width: 64rem) 55vw, 100vw"
+          <div className={styles.copy}>
+            <p className={styles.eyebrow}>NOSOTROS</p>
+            <h2 id="about-title">Somos Kaibo Security</h2>
+            <p className={styles.intro}>
+              Somos una OTEC que organiza capacitaciones en seguridad privada
+              para personas y empresas en Chile.
+            </p>
+            <p className={styles.intro}>
+              Cuando nos escribes, te responde alguien del equipo. Te contamos
+              qué curso se ajusta a lo que buscas, sus modalidades y qué
+              necesitas para inscribirte.
+            </p>
+            <Button
+              href="#contacto"
+              variant="outline"
+              className={styles.action}
+            >
+              Contáctanos
+              <ArrowUpRight
+                size={18}
+                aria-hidden="true"
               />
-            </div>
-          </figure>
+            </Button>
+          </div>
         </div>
-
-        <ul className={styles.team}>
-          {members.map((member) => (
-            <li key={member.role}>
-              <div className={styles.avatar}>
-                <Image
-                  src={member.image}
-                  alt={member.name || member.role}
-                  width={160}
-                  height={160}
-                />
-              </div>
-              <div className={styles.memberInfo}>
-                <h3>{member.name || "Nombre por confirmar"}</h3>
-                <p className={styles.role}>{member.role}</p>
-                <p className={styles.does}>
-                  <span className={styles.areaLabel}>Qué hace en su área</span>
-                  {member.does}
-                </p>
-                {/* Contactos de empresa: se pueden pulsar para llamar o escribir. */}
-                <div className={styles.memberContact}>
-                  <a href={"tel:" + member.phone}>
-                    <Phone
-                      size={16}
-                      aria-hidden="true"
-                    />
-                    <span>
-                      <span className={styles.contactLabel}>
-                        Teléfono de empresa
-                      </span>
-                      {member.phone}
-                    </span>
-                  </a>
-                  <a href={"mailto:" + member.email}>
-                    <Mail
-                      size={16}
-                      aria-hidden="true"
-                    />
-                    <span>
-                      <span className={styles.contactLabel}>
-                        Correo electrónico
-                      </span>
-                      {member.email}
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
       </Container>
     </section>
   );
