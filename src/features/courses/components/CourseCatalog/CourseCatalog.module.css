@@ -1,0 +1,397 @@
+.intro {
+  padding-block: 2rem 3rem;
+  background: var(--color-primary);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.breadcrumb [aria-current] {
+  color: var(--color-accent);
+}
+
+.intro h1 {
+  max-width: 27ch;
+  font-size: clamp(1.875rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.intro p {
+  max-width: 65ch;
+  margin-top: 1rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.introLink,
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  color: var(--color-accent);
+  font-size: 0.9375rem;
+  text-underline-offset: 0.3em;
+}
+
+.introLink {
+  margin-top: 0.75rem;
+}
+
+.catalog,
+.companies {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  background: var(--color-secondary);
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.sectionHeading {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow,
+.category {
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  margin-bottom: 0.65rem;
+}
+
+.sectionHeading h2,
+.enrollment h2,
+.companies h2,
+.faq h2 {
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.sectionHeading > p {
+  max-width: 37ch;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.card .category {
+  margin-bottom: 1.25rem;
+}
+
+.card h2 {
+  font-size: 1.1875rem;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-wrap: initial;
+}
+
+.description {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+  min-height: 5rem;
+  margin-top: auto;
+  padding-block: 1.1rem;
+  border-block: 1px solid var(--color-border);
+}
+
+.price strong {
+  font-size: 1.875rem;
+  line-height: 1.3;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.price strong[data-consult="true"] {
+  font-size: 1.375rem;
+}
+
+.price > span {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.facts {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  min-height: 10rem;
+  padding: 1.25rem 0;
+  margin: 0;
+  list-style: none;
+}
+
+.facts li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.facts svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--color-accent);
+}
+
+.facts [data-pending="true"],
+.facts [data-pending="true"] svg {
+  color: var(--color-muted);
+}
+
+.action,
+.outlineAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.action {
+  width: 100%;
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.action:hover {
+  filter: brightness(1.07);
+}
+
+.action svg,
+.textLink svg,
+.outlineAction svg {
+  flex-shrink: 0;
+}
+
+.outlineAction {
+  color: var(--color-accent);
+}
+
+.comparisonNote {
+  max-width: 85ch;
+  margin-top: 1.25rem;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.enrollment,
+.faq {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  background: var(--color-primary);
+}
+
+.infoGrid {
+  display: grid;
+  gap: 1.75rem;
+  margin-block: 2rem 1rem;
+}
+
+.infoGrid article {
+  min-width: 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.infoGrid svg {
+  color: var(--color-accent);
+}
+
+.addressLink {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.addressLink svg {
+  display: inline-block;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+.addressLink:hover {
+  color: var(--color-text);
+}
+
+.infoGrid h3 {
+  margin-top: 0.9rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.infoGrid p,
+.companies p:not(.eyebrow),
+.faq p:not(.eyebrow) {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+}
+
+.companiesInner,
+.faqLayout {
+  display: grid;
+  gap: 2rem;
+}
+
+.questions details {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.questions details:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.questions summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.75rem;
+  padding-block: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.questions summary::-webkit-details-marker {
+  display: none;
+}
+
+.questions summary svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.questions details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.questions details p {
+  margin: 0 0 1.5rem;
+}
+
+.intro a:focus-visible,
+.catalog a:focus-visible,
+.enrollment a:focus-visible,
+.companies a:focus-visible,
+.faq a:focus-visible,
+.questions summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (min-width: 40rem) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .sectionHeading {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .card h2 {
+    min-height: 2.8em;
+  }
+
+  .companiesInner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .faqLayout {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 4rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}

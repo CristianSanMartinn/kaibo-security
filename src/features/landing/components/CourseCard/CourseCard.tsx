@@ -1,14 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Clock3, Monitor } from "lucide-react";
 import type { Course } from "../../types/course.types";
 import styles from "./CourseCard.module.css";
 
 type Props = {
   course: Course;
-  onSelect: (course: Course, trigger: HTMLButtonElement) => void;
 };
 
-export default function CourseCard({ course, onSelect }: Props) {
+export default function CourseCard({ course }: Props) {
   return (
     <article className={styles.root}>
       <div className={styles.image}>
@@ -57,21 +57,17 @@ export default function CourseCard({ course, onSelect }: Props) {
               : "Consultar valor"}
             {course.price !== undefined && <small>CLP</small>}
           </p>
-          {/* El botón visible también extiende su área de pulsación a toda la tarjeta. */}
-          <button
-            type="button"
+          <Link
+            href={"/cursos/" + course.slug}
             className={styles.action}
-            aria-label={"Ver detalle de " + course.title}
-            aria-haspopup="dialog"
-            aria-controls="course-dialog"
-            onClick={(event) => onSelect(course, event.currentTarget)}
+            aria-label={"Ver curso: " + course.title}
           >
-            Ver detalle
+            Ver curso
             <ArrowRight
               size={18}
               aria-hidden="true"
             />
-          </button>
+          </Link>
         </div>
       </div>
     </article>

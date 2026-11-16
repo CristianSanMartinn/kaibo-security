@@ -14,9 +14,20 @@ const comoInscribirte = {
   ],
 };
 
+// Próximas fechas: agregar startDate/endDate solo al confirmar una nueva convocatoria.
+// indexable=false mantiene las fichas en revisión fuera del sitemap y con noindex.
 export const courses: Course[] = [
   {
     id: "guardias-os10",
+    seo: {
+      title: "Curso de guardia de seguridad en Santiago Centro",
+      description:
+        "Curso de formación de guardia de seguridad: 90 horas, modalidad online mixta y requisitos de inscripción. Atención en Santiago Centro. Consulta próximas fechas.",
+      introduction:
+        "Si buscas capacitación para trabajar como guardia de seguridad, revisa esta formación de 90 horas en modalidad online mixta. Kaibo Security atiende las consultas e inscripciones en Santiago Centro; confirma las actividades presenciales y su lugar de realización antes de inscribirte.",
+    },
+    slug: "curso-de-guardia-de-seguridad",
+    indexable: true,
     title: "Curso de Formación de Guardia de Seguridad",
     category: "SEGURIDAD PRIVADA",
     description:
@@ -26,10 +37,12 @@ export const courses: Course[] = [
     imageAlt: "Instructor y estudiantes adultos en una sala de capacitación.",
     modality: "Online mixta",
     duration: "12 días hábiles · 90 horas",
-    startDate: "2026-11-09",
-    endDate: "2026-11-24",
     schedule: "Lunes a viernes, de 08:30 a 17:30",
     price: 110000,
+    requirements: [
+      "Copia legible de la cédula de identidad vigente, por ambos lados.",
+      "Residencia definitiva para personas extranjeras, según la información de inscripción entregada.",
+    ],
     modalityNote:
       "Pregunta qué actividades son online y cuáles requieren asistir en persona.",
     notice:
@@ -64,6 +77,15 @@ export const courses: Course[] = [
   },
   {
     id: "conserje-os10",
+    seo: {
+      title: "Curso de conserje en Santiago Centro",
+      description:
+        "Formación de conserje de 60 horas en modalidad online mixta. Revisa valor, requisitos y próximas fechas con Kaibo Security. Atención en Santiago Centro.",
+      introduction:
+        "Conoce esta alternativa de capacitación para labores de conserjería, con 60 horas en modalidad online mixta. Nuestro equipo te orienta sobre el programa y la inscripción desde Santiago Centro. Consulta qué actividades requieren asistencia presencial y qué certificación corresponde al curso.",
+    },
+    slug: "curso-de-conserje",
+    indexable: false,
     title: "Curso de Formación de Conserje",
     category: "CONSERJERÍA",
     description: "Formación para labores de conserjería.",
@@ -72,10 +94,12 @@ export const courses: Course[] = [
     imageAlt: "Atención en la recepción de un edificio.",
     modality: "Online mixta",
     duration: "8 días hábiles · 60 horas",
-    startDate: "2026-11-09",
-    endDate: "2026-11-18",
     schedule: "Lunes a viernes, de 08:30 a 17:30",
     price: 100000,
+    requirements: [
+      "Copia legible de la cédula de identidad vigente, por ambos lados.",
+      "Residencia definitiva para personas extranjeras, según la información de inscripción entregada.",
+    ],
     modalityNote:
       "Pregunta qué actividades son online y cuáles requieren asistir en persona.",
     // PENDIENTE con el cliente: el material habla de una acreditación de $40.000
@@ -99,6 +123,15 @@ export const courses: Course[] = [
   },
   {
     id: "cctv",
+    seo: {
+      title: "Curso de CCTV en Santiago: cámaras y videovigilancia",
+      description:
+        "Curso CCTV: fundamentos, instalación de cámaras, configuración de DVR/NVR y mantenimiento. Kaibo Security, con atención en Santiago Centro. Consulta modalidad y fechas.",
+      introduction:
+        "Si buscas un curso de CCTV en Santiago, puedes consultar a Kaibo Security sobre esta formación en sistemas de videovigilancia. El programa aborda instalación, configuración y mantenimiento de cámaras y DVR/NVR. Nuestro punto de atención está en Santiago Centro; confirma modalidad, lugar de clases y próximas fechas con el equipo.",
+    },
+    slug: "curso-de-cctv",
+    indexable: false,
     title: "Curso de CCTV",
     category: "VIDEOVIGILANCIA",
     description:
@@ -136,6 +169,15 @@ export const courses: Course[] = [
   },
   {
     id: "baston-esposas",
+    seo: {
+      title: "Curso de bastón y esposas | Atención en Santiago Centro",
+      description:
+        "Capacitación presencial en bastón y esposas: jornada de 8 horas por $50.000 CLP. Atención en Santiago Centro. Consulta próximas fechas, requisitos y lugar del curso.",
+      introduction:
+        "Revisa esta jornada presencial de capacitación en bastón y esposas, con una duración informada de 8 horas. Puedes coordinar tu inscripción con el equipo de Kaibo Security en Santiago Centro. El horario y el lugar donde se realiza la capacitación deben confirmarse antes de asistir.",
+    },
+    slug: "curso-de-baston-y-esposas",
+    indexable: true,
     title: "Curso de Bastón y Esposas",
     category: "CAPACITACIÓN ESPECÍFICA",
     description: "Jornada presencial de capacitación en bastón y esposas.",
@@ -144,7 +186,6 @@ export const courses: Course[] = [
     imageAlt: "Implementos de entrenamiento sobre una mesa de capacitación.",
     modality: "Presencial",
     duration: "Una jornada intensiva · 8 horas",
-    startDate: "2026-11-09",
     price: 50000,
     // PENDIENTE con el cliente: horario y lugar donde se realiza el curso.
     notice:

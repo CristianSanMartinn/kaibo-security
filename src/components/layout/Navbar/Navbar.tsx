@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/ui/Container/Container";
@@ -8,6 +11,7 @@ import { siteConfig } from "@/config/site";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
+  const pathname = usePathname();
   return (
     <header className={styles.root}>
       <Container className={styles.inner}>
@@ -43,6 +47,11 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
+              aria-current={
+                item.href === "/cursos" && pathname.startsWith("/cursos")
+                  ? "page"
+                  : undefined
+              }
             >
               {item.label}
             </Link>

@@ -3,7 +3,7 @@ export const frequentlyAskedQuestions = [
   {
     question: "¿Cómo puedo consultar por un curso?",
     answer:
-      "Selecciona Más información en la capacitación que te interesa. Encontrarás su descripción y, cuando el canal oficial esté confirmado, podrás consultar por WhatsApp con el nombre del curso incluido en el mensaje.",
+      "Selecciona Ver curso en la capacitación que te interesa. Su página reúne el programa, los datos disponibles y el enlace para consultar por WhatsApp con el nombre del curso incluido en el mensaje.",
   },
   {
     question: "¿Dónde puedo conocer los valores y las fechas?",

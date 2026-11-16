@@ -11,7 +11,7 @@ export const heroSlides: HeroSlideData[] = [
     accent: "seguridad privada.",
     description:
       "Conoce nuestros cursos de Guardia de Seguridad, Conserje, CCTV y Bastón y Esposas. Consulta el programa y recibe orientación para inscribirte.",
-    action: { label: "Ver cursos", href: "#cursos" },
+    action: { label: "Ver cursos", href: "/cursos" },
     contactLabel: "Consultar por WhatsApp",
   },
   {
@@ -22,7 +22,7 @@ export const heroSlides: HeroSlideData[] = [
     accent: "cursos de seguridad.",
     description:
       "Explora nuestra propuesta de formación en seguridad privada. Consulta los contenidos y encuentra la capacitación que se ajuste a tus objetivos.",
-    action: { label: "Ver cursos", href: "#cursos" },
+    action: { label: "Ver cursos", href: "/cursos" },
     contactLabel: "Consultar por WhatsApp",
   },
   {

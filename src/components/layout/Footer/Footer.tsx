@@ -48,7 +48,7 @@ export default function Footer() {
             {courses.map((course) => (
               <Link
                 key={course.id}
-                href="/#cursos"
+                href={"/cursos/" + course.slug}
               >
                 {course.title}
               </Link>

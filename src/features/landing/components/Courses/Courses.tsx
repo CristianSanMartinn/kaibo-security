@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
 import SectionHeading from "@/components/ui/SectionHeading/SectionHeading";
 import CoursesGrid from "../CoursesGrid/CoursesGrid";
@@ -17,9 +18,17 @@ export default function Courses() {
           title="Elige tu curso."
           id="courses-title"
         >
-          <p>Toca un curso para ver las fechas, el valor y cómo inscribirte.</p>
+          <p>
+            Conoce nuestras capacitaciones y consulta el programa de cada curso.
+          </p>
         </SectionHeading>
         <CoursesGrid courses={courses} />
+        <Link
+          className={styles.catalogLink}
+          href="/cursos"
+        >
+          Comparar cursos →
+        </Link>
       </Container>
     </section>
   );

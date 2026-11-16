@@ -1,0 +1,52 @@
+.root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estructura de carga sin animaciones que distraigan al navegar. */
+.loading {
+  width: min(100% - 2rem, 78rem);
+  margin-inline: auto;
+  padding-block: 3rem;
+  color: var(--color-muted);
+}
+
+.loadingLayout {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.loadingPhoto,
+.loadingSummary {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-secondary);
+}
+
+.loadingPhoto {
+  aspect-ratio: 16 / 10;
+}
+
+.loadingSummary {
+  min-height: 18rem;
+}
+
+@media (min-width: 64rem) {
+  .loadingLayout {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  }
+}
+
+@media (max-width: 63.99rem) {
+  /* Reservar espacio para que el CTA fijo no cubra el pie ni los enlaces. */
+  :global(body:has([data-course-page])) {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  :global(
+    body:has([data-course-page]) [aria-label="Contacto rápido y redes sociales"]
+  ) {
+    /* En móvil la ficha ya tiene un CTA fijo de WhatsApp. */
+    display: none;
+  }
+}
