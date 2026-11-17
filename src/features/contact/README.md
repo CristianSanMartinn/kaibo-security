@@ -17,7 +17,7 @@ API modular de Next.js App Router. No requiere un servidor separado ni base de d
 
 1. Copia `.env.example` a `.env.local` sin sobrescribir variables previas.
 2. Crea una clave de Resend y completa `RESEND_API_KEY` solo en `.env.local`.
-3. Mantén `CONTACT_EMAIL_TO=cr.sanmartino.react@gmail.com` para pruebas.
+3. Para pruebas, usa un correo de pruebas autorizado en `CONTACT_EMAIL_TO`; no uses la dirección personal del desarrollador para consultas del sitio público.
 4. El remitente de prueba `onboarding@resend.dev` solo permite enviar al correo registrado en la cuenta de Resend. Registra la cuenta con tu dirección de pruebas o verifica un dominio propio.
 5. Reinicia `pnpm dev`, envía una consulta ficticia y revisa bandeja/spam. La confirmación indica aceptación por Resend; no confirma llegada a la bandeja de entrada.
 
@@ -28,7 +28,7 @@ Sin configuración, la API devuelve 503 y el formulario informa que no está dis
 - Verifica un dominio o subdominio propio en Resend mediante sus registros DNS SPF/DKIM. No reemplaces los MX del correo que ya usa la empresa.
 - Configura `RESEND_API_KEY`, `CONTACT_EMAIL_FROM` y `CONTACT_EMAIL_TO` en Vercel como variables privadas, sin `NEXT_PUBLIC_`.
 - Usa como remitente una dirección del dominio verificado, por ejemplo `Kaibo Security <consultas@notificaciones.kaibosecurity.cl>` si verificas ese subdominio.
-- Destinatario de producción confirmado: `CONTACT_EMAIL_TO=info@kaibosecurity.com`. Mantén `cr.sanmartino.react@gmail.com` exclusivamente durante las pruebas y retíralo antes de publicar. Si se confirman más integrantes, admite direcciones separadas por comas (máximo 10).
+- Destinatario de producción confirmado: `CONTACT_EMAIL_TO=info@kaibosecurity.com`. El correo personal del desarrollador fue retirado de la configuración de destinatarios. Si se confirman más integrantes, admite direcciones separadas por comas (máximo 10).
 - El correo del visitante se usa en `reply_to`: responder la notificación responde al interesado. Nunca se usa como remitente.
 - Despliega nuevamente tras configurar las variables.
 - Antes de abrirlo a tráfico publicitario, configura rate limiting de POST `/api/contact` en Vercel Firewall. Honeypot y origen no sustituyen un límite persistente; se evita un contador de memoria local que no funciona entre instancias serverless.
@@ -44,3 +44,12 @@ Se usa el compilador TypeScript ya instalado y transportes simulados. No se nece
 Para generar una vista previa HTML: `node src/features/contact/tests/preview-email.mjs RUTA_DE_SALIDA.html`.
 
 Documentación del proveedor: https://resend.com/docs/api-reference/emails/send-email
+
+## Destinatario actual
+
+- info@kaibosecurity.com
+
+El cliente pidió mantener por ahora solo este destinatario y retirar el correo personal del desarrollador. No agregar otros integrantes sin nueva indicación.
+La configuración de Vercel se actualizó para Preview y Production. El remitente actual de pruebas `onboarding@resend.dev` no puede entregar a este correo externo hasta verificar un dominio propio y cambiar el remitente.
+Agrega `notificaciones.kaibosecurity.cl` en Resend → Domains, publica sus registros DNS y espera Verified.
+Después configura `CONTACT_EMAIL_FROM=Kaibo Security <consultas@notificaciones.kaibosecurity.cl>` en Vercel, vuelve a desplegar y confirma la recepción.
