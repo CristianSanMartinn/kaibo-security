@@ -359,3 +359,8 @@
     top: 7rem;
   }
 }
+
+/* Dos franjas de atención; la del domingo tiene su propia fila. */
+.hoursGroup + .hoursGroup {
+  margin-top: 1rem;
+}

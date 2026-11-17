@@ -4,11 +4,11 @@
 
 // Horario centralizado.
 // Se utiliza en Contact, Footer y eventualmente datos estructurados SEO.
-export const officeHours = {
-  days: "Lunes a viernes",
-  opens: "09:00",
-  closes: "16:00",
-} as const;
+// Horarios de atención confirmados por el cliente (no son horarios de clases).
+export const officeHours = [
+  { days: "Lunes a sábado", opens: "08:00", closes: "20:00" },
+  { days: "Domingo", opens: "10:00", closes: "20:00" },
+] as const;
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
@@ -70,7 +70,11 @@ export const siteConfig = {
   // HORARIO
   // =========================
 
-  hours: `${officeHours.days}: ${officeHours.opens} a ${officeHours.closes}`,
+  hours: officeHours
+    .map(
+      (schedule) => `${schedule.days}: ${schedule.opens} a ${schedule.closes}`,
+    )
+    .join(" · "),
 } as const;
 
 /**

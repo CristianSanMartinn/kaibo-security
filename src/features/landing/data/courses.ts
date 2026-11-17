@@ -126,7 +126,7 @@ export const courses: Course[] = [
     seo: {
       title: "Curso de CCTV en Santiago: cámaras y videovigilancia",
       description:
-        "Curso CCTV: fundamentos, instalación de cámaras, configuración de DVR/NVR y mantenimiento. Kaibo Security, con atención en Santiago Centro. Consulta modalidad y fechas.",
+        "Curso de CCTV por $70.000 CLP: instalación de cámaras, configuración de DVR/NVR y mantenimiento. Atención en Santiago Centro. Consulta modalidad y próximas fechas.",
       introduction:
         "Si buscas un curso de CCTV en Santiago, puedes consultar a Kaibo Security sobre esta formación en sistemas de videovigilancia. El programa aborda instalación, configuración y mantenimiento de cámaras y DVR/NVR. Nuestro punto de atención está en Santiago Centro; confirma modalidad, lugar de clases y próximas fechas con el equipo.",
     },
@@ -141,7 +141,8 @@ export const courses: Course[] = [
     image: "/images/courses/cctv-provisional.webp",
     imageAlt: "Sala de monitoreo con pantallas de videovigilancia.",
     // Contenidos del afiche CCTV entregado por el cliente.
-    // PENDIENTE: duración, modalidad, fechas, valor, requisitos y certificado.
+    price: 70000,
+    // Sin fecha disponible. Pendientes: duración, modalidad, requisitos y certificado.
     sections: [
       {
         title: "¿Qué aprenderás?",
@@ -161,7 +162,7 @@ export const courses: Course[] = [
       {
         title: "Información e inscripción",
         paragraphs: [
-          "Consulta con nuestro equipo el valor, la duración, la modalidad, las próximas fechas y los requisitos de ingreso.",
+          "El valor del curso es $70.000 CLP. Aún no hay una fecha de inicio disponible. Consulta la duración, la modalidad y los requisitos de ingreso con nuestro equipo.",
           "Antes de inscribirte, confirma qué certificado se entrega y cuáles son las condiciones para obtenerlo.",
         ],
       },

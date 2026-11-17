@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, ChevronDown, MessageCircle, ArrowLeft } from "lucide-react";
 import Container from "@/components/ui/Container/Container";
-import { officeHours, siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site";
 import type { Course } from "@/features/landing/types/course.types";
 import { courseWhatsApp, formatPrice } from "../../lib/course-pages";
 import styles from "./CoursePage.module.css";
@@ -157,8 +157,7 @@ export default function CoursePage({ course }: Props) {
               <span className="sr-only"> (abre una pestaña nueva)</span>
             </a>
             <p className={styles.hours}>
-              Atendemos {officeHours.days.toLowerCase()}, de {officeHours.opens}{" "}
-              a {officeHours.closes}.
+              Horario de atención: {siteConfig.hours}.
             </p>
           </aside>
 
