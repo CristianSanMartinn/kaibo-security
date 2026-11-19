@@ -1,7 +1,14 @@
 "use client";
 
-import { useRef, useState, type FormEvent, type ReactNode } from "react";
-import { ChevronDown, Mail, LoaderCircle } from "lucide-react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type ReactNode,
+} from "react";
+import { ChevronDown, Mail, LoaderCircle, CircleCheck, X } from "lucide-react";
 import {
   validateContact,
   extraContactOptions,
@@ -15,6 +22,57 @@ import type {
 import styles from "./ContactForm.module.css";
 
 type Props = { courses: string[] };
+
+function SuccessNotice({ onClose }: { onClose: () => void }) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    dialog?.showModal();
+    const timeout = window.setTimeout(onClose, 5_000);
+
+    return () => {
+      window.clearTimeout(timeout);
+      dialog?.close();
+    };
+  }, [onClose]);
+
+  return (
+    <dialog
+      ref={dialogRef}
+      className={styles.successCard}
+      aria-labelledby="contact-success-title"
+      aria-describedby="contact-success-description"
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+    >
+      <button
+        type="button"
+        className={styles.closeSuccess}
+        aria-label="Cerrar confirmación"
+        onClick={onClose}
+      >
+        <X
+          size={22}
+          aria-hidden="true"
+        />
+      </button>
+      <CircleCheck
+        className={styles.successIcon}
+        size={48}
+        aria-hidden="true"
+      />
+      <h3 id="contact-success-title">¡Consulta enviada con éxito!</h3>
+      <p id="contact-success-description">
+        Recibimos tu mensaje. El equipo de Kaibo Security te responderá al
+        correo que indicaste.
+      </p>
+      <p className={styles.autoClose}>Esta ventana se cerrará en 5 segundos.</p>
+    </dialog>
+  );
+}
 
 const empty: Values = {
   name: "",
@@ -60,6 +118,10 @@ export default function ContactForm({ courses }: Props) {
   const [website, setWebsite] = useState("");
   const sending = useRef(false);
   const requestId = useRef<string | null>(null);
+  const closeSuccess = useCallback(() => {
+    setStatus("idle");
+    setFeedback("");
+  }, []);
 
   function update(field: keyof Values, value: string) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -112,6 +174,11 @@ export default function ContactForm({ courses }: Props) {
         );
         return;
       }
+      // Vaciar los campos únicamente cuando el servidor confirma el envío.
+      setValues({ ...empty });
+      setErrors({});
+      setWebsite("");
+      requestId.current = null;
       setStatus("success");
       setFeedback(data.message);
     } catch {
@@ -133,6 +200,7 @@ export default function ContactForm({ courses }: Props) {
       noValidate
       aria-busy={status === "sending"}
     >
+      {status === "success" && <SuccessNotice onClose={closeSuccess} />}
       {/* Campo señuelo oculto a usuarios y lectores de pantalla. */}
       <div
         className={styles.honeypot}
