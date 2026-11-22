@@ -8,8 +8,8 @@ import { courses } from "@/features/landing/data/courses";
 import { siteConfig } from "@/config/site";
 
 export const metadata = pageMetadata(
-  "Cursos de seguridad privada en Santiago Centro",
-  "Compara cursos de guardia de seguridad, conserje, CCTV y bastón y esposas. Revisa valores, modalidades e inscripción con atención en Santiago Centro.",
+ "Cursos OS10, CCTV y seguridad privada en Santiago",
+  "Explora cursos OS10 para guardias, conserje, operación y monitoreo CCTV y bastón y esposas. Consulta valores, modalidades y próximas fechas en Kaibo Security.",
   "/cursos",
 );
 

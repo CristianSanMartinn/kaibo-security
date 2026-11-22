@@ -1,66 +1,109 @@
 import type { Course } from "../types/course.types";
 
-/*
-  Todo lo que está en comillas se muestra en la página. Las notas para ti o para
-  el cliente van como comentarios (//) y no se publican.
-  El valor de acreditación se informa aparte y no se suma al valor del curso.
-*/
+/**
+ * Contenido público de los cursos.
+ *
+ * Publicar únicamente información confirmada por Kaibo Security.
+ * No agregar certificaciones, fechas o requisitos sin validación.
+ *
+ * indexable:
+ * - true: permite que la ficha se incluya en el sitemap.
+ * - false: mantiene la ficha fuera del sitemap y, según el generador
+ *   de metadatos, indica noindex.
+ *
+ * La acreditación se informa por separado del precio del curso.
+ */
 
 const comoInscribirte = {
   title: "Cómo inscribirte",
   paragraphs: [
     "Puedes pagar por transferencia bancaria o en efectivo, de forma presencial.",
-    "Nuestra oficina está en Serrano 73, piso 9, oficina 910, Santiago Centro, a pasos del Metro Universidad de Chile. Las visitas se coordinan antes.",
+    "Nuestra oficina está en Serrano 73, piso 9, oficina 910, Santiago Centro, a pasos del Metro Universidad de Chile. Las visitas se coordinan previamente.",
   ],
 };
 
-// Próximas fechas: agregar startDate/endDate solo al confirmar una nueva convocatoria.
-// indexable=false mantiene las fichas en revisión fuera del sitemap y con noindex.
 export const courses: Course[] = [
   {
     id: "guardias-os10",
+
     seo: {
-      title: "Curso de guardia de seguridad en Santiago Centro",
+      title:
+        "Curso OS10 para guardias de seguridad en Santiago",
+
       description:
-        "Curso de formación de guardia de seguridad: 90 horas, modalidad online mixta y requisitos de inscripción. Atención en Santiago Centro. Consulta próximas fechas.",
+        "Consulta el curso OS10 para guardias de seguridad: valor, formación de 90 horas, modalidad mixta y requisitos. Atención en Santiago Centro.",
+
       introduction:
-        "Si buscas capacitación para trabajar como guardia de seguridad, revisa esta formación de 90 horas en modalidad online mixta. Kaibo Security atiende las consultas e inscripciones en Santiago Centro; confirma las actividades presenciales y su lugar de realización antes de inscribirte.",
+        "Conoce el curso OS10 para guardias de seguridad y revisa su valor, duración, requisitos y modalidad online mixta. Kaibo Security atiende consultas e inscripciones en Santiago Centro. Antes de inscribirte, confirma las próximas fechas, las actividades presenciales y su lugar de realización.",
     },
+
+    // Mantener la URL existente para evitar cambios innecesarios.
     slug: "curso-de-guardia-de-seguridad",
+
     indexable: true,
-    title: "Curso de Formación de Guardia de Seguridad",
+
+    title: "Curso OS10 de Formación de Guardia de Seguridad",
+
     category: "SEGURIDAD PRIVADA",
+
     description:
-      "Formación para desempeñarte como guardia de seguridad privada.",
-    detail: "Formación para desempeñarte como guardia de seguridad privada.",
+      "Formación para guardias de seguridad privada. Revisa el programa, los requisitos y la modalidad del curso OS10.",
+
+    detail:
+      "Consulta la formación para desempeñarte como guardia de seguridad privada, sus requisitos de inscripción y las condiciones del proceso de acreditación.",
+
     image: "/images/about/sala-capacitacion-provisional.webp",
-    imageAlt: "Instructor y estudiantes adultos en una sala de capacitación.",
+
+    imageAlt:
+      "Instructor y estudiantes adultos en una sala de capacitación.",
+
     modality: "Online mixta",
+
     duration: "12 días hábiles · 90 horas",
+
     schedule: "Lunes a viernes, de 08:30 a 17:30",
+
     price: 110000,
+
     requirements: [
       "Copia legible de la cédula de identidad vigente, por ambos lados.",
       "Residencia definitiva para personas extranjeras, según la información de inscripción entregada.",
     ],
+
     modalityNote:
-      "Pregunta qué actividades son online y cuáles requieren asistir en persona.",
+      "Consulta qué actividades se realizan online y cuáles requieren asistencia presencial.",
+
     notice:
       "La acreditación tiene un cobro aparte de $40.000. Aprobar el curso no entrega la credencial automáticamente.",
+
     sections: [
       {
-        ...comoInscribirte,
+        title: "Duración y modalidad del curso OS10",
+
         paragraphs: [
+          "La formación tiene una duración informada de 90 horas, distribuidas en 12 días hábiles, en modalidad online mixta.",
+          "El horario informado es de lunes a viernes, de 08:30 a 17:30. Consulta las próximas fechas y confirma qué actividades requieren asistencia presencial.",
+        ],
+      },
+
+      {
+        title: "Valor del curso e inscripción",
+
+        paragraphs: [
+          "El valor informado del curso es de $110.000 CLP. El cobro de acreditación se informa por separado.",
           ...comoInscribirte.paragraphs,
           "Para ingresar a la nómina necesitas una copia legible de tu cédula de identidad vigente, por ambos lados. Si eres extranjero/a, se solicita residencia definitiva.",
         ],
       },
+
       {
         title: "Acreditación ante la SPD",
+
         paragraphs: [
           "Al terminar el curso y aprobar el examen, la acreditación se gestiona ante la Subsecretaría de Prevención del Delito (SPD). Antes de contratarla, consulta qué cubre el cobro de $40.000.",
           "Para el trámite se piden estos documentos:",
         ],
+
         items: [
           "Cédula de identidad vigente, por ambos lados.",
           "Residencia definitiva, si eres extranjero/a.",
@@ -70,127 +113,241 @@ export const courses: Course[] = [
           "Certificado de estudios de enseñanza media o equivalente (con apostilla y reconocimiento si estudiaste en el extranjero).",
           "Situación militar al día, si corresponde.",
         ],
+
         notice:
           "Los certificados médico y psicológico se incluyen solo si haces la gestión con Capacitaciones Desmar, y se usan únicamente para ese trámite.",
       },
     ],
   },
+
   {
     id: "conserje-os10",
+
     seo: {
-      title: "Curso de conserje en Santiago Centro",
+      title:
+        "Curso de conserje en Santiago: formación y requisitos",
+
       description:
-        "Formación de conserje de 60 horas en modalidad online mixta. Revisa valor, requisitos y próximas fechas con Kaibo Security. Atención en Santiago Centro.",
+        "Curso de conserje de 60 horas en modalidad online mixta. Consulta valor, requisitos y próximas fechas con atención en Santiago Centro.",
+
       introduction:
-        "Conoce esta alternativa de capacitación para labores de conserjería, con 60 horas en modalidad online mixta. Nuestro equipo te orienta sobre el programa y la inscripción desde Santiago Centro. Consulta qué actividades requieren asistencia presencial y qué certificación corresponde al curso.",
+        "Conoce el curso de formación de conserje de Kaibo Security. Revisa su valor, duración de 60 horas y modalidad online mixta. Nuestro equipo atiende consultas e inscripciones en Santiago Centro. Antes de inscribirte, confirma las actividades presenciales, el lugar de realización y qué certificación corresponde al curso.",
     },
+
     slug: "curso-de-conserje",
+
+    // Mantener en revisión hasta aclarar la certificación y acreditación.
+    // Cambiar a true cuando el cliente apruebe el contenido definitivo.
     indexable: false,
+
     title: "Curso de Formación de Conserje",
+
     category: "CONSERJERÍA",
-    description: "Formación para labores de conserjería.",
-    detail: "Formación para labores de conserjería.",
+
+    description:
+      "Capacitación para labores de conserjería. Consulta duración, modalidad y requisitos de inscripción.",
+
+    detail:
+      "Formación para labores de conserjería, con información sobre duración, modalidad e inscripción.",
+
     image: "/images/courses/conserje-provisional.webp",
+
     imageAlt: "Atención en la recepción de un edificio.",
+
     modality: "Online mixta",
+
     duration: "8 días hábiles · 60 horas",
+
     schedule: "Lunes a viernes, de 08:30 a 17:30",
+
     price: 100000,
+
     requirements: [
       "Copia legible de la cédula de identidad vigente, por ambos lados.",
       "Residencia definitiva para personas extranjeras, según la información de inscripción entregada.",
     ],
+
     modalityNote:
-      "Pregunta qué actividades son online y cuáles requieren asistir en persona.",
-    // PENDIENTE con el cliente: el material habla de una acreditación de $40.000
-    // pero se refiere a guardia de seguridad. Cuando confirme si aplica a conserje,
-    // qué habilitación entrega y qué cubre el cobro, agregar la sección aquí.
+      "Consulta qué actividades se realizan online y cuáles requieren asistencia presencial.",
+
     sections: [
       {
+        title: "Duración y modalidad",
+
+        paragraphs: [
+          "El curso tiene una duración informada de 60 horas, distribuidas en 8 días hábiles, en modalidad online mixta.",
+          "El horario informado es de lunes a viernes, de 08:30 a 17:30. Consulta las próximas fechas y las actividades que requieren asistencia presencial.",
+        ],
+      },
+
+      {
+        title: "Valor del curso de conserje",
+
+        paragraphs: [
+          "El valor informado del curso es de $100.000 CLP.",
+          "Antes de inscribirte, confirma qué incluye este valor y si corresponde algún trámite adicional.",
+        ],
+      },
+
+      {
         ...comoInscribirte,
+
         paragraphs: [
           ...comoInscribirte.paragraphs,
           "Para ingresar a la nómina necesitas una copia legible de tu cédula de identidad vigente, por ambos lados. Si eres extranjero/a, se solicita residencia definitiva.",
         ],
       },
+
       {
-        title: "¿Incluye acreditación?",
+        title: "Certificación y acreditación",
+
         paragraphs: [
-          "Escríbenos por WhatsApp y te contamos si este curso incluye acreditación, qué documentos se piden y cuánto cuesta.",
+          "Antes de inscribirte, consulta al equipo qué certificado se entrega, cuáles son sus condiciones de obtención y si corresponde algún trámite de acreditación.",
         ],
       },
     ],
   },
+
   {
     id: "cctv",
+
     seo: {
-      title: "Curso de CCTV en Santiago: cámaras y videovigilancia",
+      title:
+        "Curso de CCTV en Santiago: operación y monitoreo",
+
       description:
-        "Curso de CCTV por $70.000 CLP: instalación de cámaras, configuración de DVR/NVR y mantenimiento. Atención en Santiago Centro. Consulta modalidad y próximas fechas.",
+        "Curso de CCTV para aprender manejo de cámaras, configuración de monitoreo y revisión de grabaciones. Consulta valor y próximas fechas en Kaibo Security.",
+
       introduction:
-        "Si buscas un curso de CCTV en Santiago, puedes consultar a Kaibo Security sobre esta formación en sistemas de videovigilancia. El programa aborda instalación, configuración y mantenimiento de cámaras y DVR/NVR. Nuestro punto de atención está en Santiago Centro; confirma modalidad, lugar de clases y próximas fechas con el equipo.",
+        "Aprende sobre el manejo de cámaras de seguridad y la configuración de monitoreo con el curso de CCTV de Kaibo Security. La capacitación se enfoca en operación de cámaras, monitoreo, grabación y detección de incidentes. Consulta el programa, la modalidad y las próximas fechas con nuestro equipo de atención en Santiago Centro.",
     },
+
     slug: "curso-de-cctv",
-    indexable: false,
-    title: "Curso de CCTV",
+
+    // Contenido enfocado en operación y monitoreo, no en instalación.
+    indexable: true,
+
+    title: "Curso de CCTV: Operación y Monitoreo de Cámaras",
+
     category: "VIDEOVIGILANCIA",
+
     description:
-      "Aprende a instalar, configurar y mantener sistemas de videovigilancia CCTV.",
+      "Aprende manejo de cámaras de seguridad, configuración de monitoreo y revisión de grabaciones CCTV.",
+
     detail:
-      "Formación teórica y práctica para instalar, configurar y mantener sistemas de videovigilancia CCTV desde cero, aplicando buenas prácticas y estándares de seguridad.",
+      "Capacitación en operación de cámaras de seguridad y configuración de monitoreo CCTV, orientada al monitoreo de imágenes, la grabación y la detección de incidentes.",
+
     image: "/images/courses/cctv-provisional.webp",
-    imageAlt: "Sala de monitoreo con pantallas de videovigilancia.",
-    // Contenidos del afiche CCTV entregado por el cliente.
+
+    imageAlt:
+      "Sala de monitoreo con pantallas de cámaras de seguridad CCTV.",
+
+    // Valor previamente informado por el cliente.
+    // Confirmar su vigencia antes de publicar.
     price: 70000,
-    // Sin fecha disponible. Pendientes: duración, modalidad, requisitos y certificado.
+
+    // Agregar duración, modalidad, requisitos y fechas
+    // únicamente cuando el cliente los confirme.
+
     sections: [
       {
-        title: "¿Qué aprenderás?",
+        title: "¿Qué aprenderás en el curso de CCTV?",
+
         items: [
-          "Fundamentos de sistemas CCTV y su funcionamiento.",
-          "Instalación y configuración de cámaras y DVR/NVR.",
-          "Mantenimiento preventivo y correctivo.",
-          "Buenas prácticas y seguridad en el equipo.",
+          "Operación y manejo de cámaras de seguridad.",
+          "Configuración de monitoreo de cámaras.",
+          "Monitoreo de imágenes y grabaciones.",
+          "Detección de incidentes mediante videovigilancia.",
         ],
       },
+
       {
         title: "¿A quién está dirigido?",
+
         paragraphs: [
-          "El curso está orientado a personas de todos los niveles que buscan aprender sobre sistemas de videovigilancia, con un enfoque práctico y teórico desde cero.",
+          "A personas interesadas en aprender a manejar cámaras de seguridad y utilizar sistemas de monitoreo CCTV.",
+          "Consulta al equipo si necesitas conocimientos previos y qué requisitos corresponden a esta capacitación.",
         ],
       },
+
       {
-        title: "Información e inscripción",
+        title: "Valor y próximas fechas",
+
         paragraphs: [
-          "El valor del curso es $70.000 CLP. Aún no hay una fecha de inicio disponible. Consulta la duración, la modalidad y los requisitos de ingreso con nuestro equipo.",
+          "El valor informado del curso de CCTV es de $70.000 CLP.",
+          "Consulta las próximas fechas, la duración, la modalidad y el lugar donde se realiza la capacitación antes de inscribirte.",
+        ],
+      },
+
+      {
+        ...comoInscribirte,
+      },
+
+      {
+        title: "Certificado del curso",
+
+        paragraphs: [
           "Antes de inscribirte, confirma qué certificado se entrega y cuáles son las condiciones para obtenerlo.",
         ],
       },
     ],
   },
+
   {
     id: "baston-esposas",
+
     seo: {
-      title: "Curso de bastón y esposas | Atención en Santiago Centro",
+      title:
+        "Curso de bastón y esposas: capacitación presencial",
+
       description:
-        "Capacitación presencial en bastón y esposas: jornada de 8 horas por $50.000 CLP. Atención en Santiago Centro. Consulta próximas fechas, requisitos y lugar del curso.",
+        "Curso presencial de bastón y esposas: jornada de 8 horas por $50.000 CLP. Atención en Santiago Centro. Consulta próximas fechas y lugar de realización.",
+
       introduction:
-        "Revisa esta jornada presencial de capacitación en bastón y esposas, con una duración informada de 8 horas. Puedes coordinar tu inscripción con el equipo de Kaibo Security en Santiago Centro. El horario y el lugar donde se realiza la capacitación deben confirmarse antes de asistir.",
+        "Conoce el curso presencial de bastón y esposas de Kaibo Security, con una duración informada de 8 horas. Revisa su valor y coordina tu inscripción con el equipo de atención en Santiago Centro. Confirma las próximas fechas, los requisitos, el horario y el lugar de realización antes de asistir.",
     },
+
     slug: "curso-de-baston-y-esposas",
+
     indexable: true,
+
     title: "Curso de Bastón y Esposas",
+
     category: "CAPACITACIÓN ESPECÍFICA",
-    description: "Jornada presencial de capacitación en bastón y esposas.",
-    detail: "Jornada presencial de capacitación en bastón y esposas.",
+
+    description:
+      "Jornada presencial de capacitación en bastón y esposas. Consulta fechas, requisitos y lugar de realización.",
+
+    detail:
+      "Capacitación presencial en bastón y esposas, con una duración informada de 8 horas e inscripción previa.",
+
     image: "/images/courses/baston-provisional.webp",
-    imageAlt: "Implementos de entrenamiento sobre una mesa de capacitación.",
+
+    imageAlt:
+      "Implementos de entrenamiento sobre una mesa de capacitación.",
+
     modality: "Presencial",
+
     duration: "Una jornada intensiva · 8 horas",
+
     price: 50000,
-    // PENDIENTE con el cliente: horario y lugar donde se realiza el curso.
+
     notice:
-      "Pregunta por el horario y el lugar donde se realiza. La oficina es solo el punto de atención.",
-    sections: [comoInscribirte],
+      "Confirma el horario y el lugar de realización. La oficina de Santiago Centro es el punto de atención e inscripción.",
+
+    sections: [
+      {
+        title: "Duración y valor",
+
+        paragraphs: [
+          "El curso se realiza en una jornada presencial de 8 horas, con un valor informado de $50.000 CLP.",
+          "Consulta las próximas fechas, el horario, los requisitos y el lugar de realización.",
+        ],
+      },
+
+      {
+        ...comoInscribirte,
+      },
+    ],
   },
 ];

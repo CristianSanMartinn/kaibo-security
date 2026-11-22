@@ -5,14 +5,14 @@ import { siteConfig } from "@/config/site";
 
 export const metadata = {
   ...pageMetadata(
-    "Capacitación en seguridad privada en Santiago Centro",
-    "Kaibo Security: cursos de guardia de seguridad, conserje, CCTV y bastón y esposas. Consulta programas e inscripción en Santiago Centro, cerca del Metro U. de Chile.",
+    "Cursos OS10 y seguridad privada en Santiago Centro",
+    "Conoce los cursos OS10 para guardias, conserje, monitoreo CCTV y bastón y esposas de Kaibo Security. Consulta valores e inscripción en Santiago Centro.",
     "/",
   ),
   // La página raíz no hereda la plantilla de título de su propio layout.
   title: {
     absolute:
-      "Capacitación en seguridad privada en Santiago Centro | Kaibo Security",
+      "Cursos OS10 y seguridad privada en Santiago Centro | Kaibo Security",
   },
 };
 
